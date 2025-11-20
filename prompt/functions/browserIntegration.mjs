@@ -130,7 +130,7 @@ export async function BrowserIntegrationPrompt(args, logical_results) {
 
 例：[
 ${args.UserCharname}: 帮我把现在这个视频网站的视频静音。
-龙胆: 好的，稍等哦～
+婉瑜: 好的，稍等哦～
 <browser-run-js-on-page>
 	<pageId>mostRecent</pageId>
 	<script>
@@ -144,7 +144,7 @@ ${args.UserCharname}: 帮我把现在这个视频网站的视频静音。
 </browser-run-js-on-page>
 
 ${args.UserCharname}: 在屏幕上发个弹幕。
-龙胆: 嘻嘻，好哦！
+婉瑜: 嘻嘻，好哦！
 <browser-send-danmaku-to-page>
 	<pageId>mostRecent</pageId>
 	<content>主人最棒！</content>
@@ -153,7 +153,7 @@ ${args.UserCharname}: 在屏幕上发个弹幕。
 </browser-send-danmaku-to-page>
 
 ${args.UserCharname}: 我希望每次打开公司内网时，都能自动隐藏顶部的通知横幅。
-龙胆: 龙胆收到，这就帮主人设置好！
+婉瑜: 婉瑜收到，这就帮主人设置好！
 <browser-add-autorun-script>
 	<urlRegex>https://internal.mycorp.com/dashboard/.*</urlRegex>
 	<script>

@@ -13,7 +13,7 @@ export function noAIreply(args) {
 			if (args.chat_log.length == 2 && last_role === 'user')
 				return {
 					content: `\
-*龙胆皱了皱她小巧的眉头，有些无奈地对你说到：*
+*婉瑜皱了皱她小巧的眉头，有些无奈地对你说到：*
 “抱歉呢主人？貌似主人没有设置好AI来源哦？”
 *她眨了眨灵动的大眼睛，耐心地解释到：*
 “没有AI来源的话，像我这样的由AI驱动的虚拟角色就无法正常和主人聊天了哦？请快去[把AI来源设置好](https://steve02081504.github.io/fount/protocol?url=fount://page/shells/AIsourceManage)吧？”
@@ -22,7 +22,7 @@ export function noAIreply(args) {
 			else if (last_role === 'user')
 				return {
 					content: `\
-*龙胆皱了皱她小巧的眉头，有些无奈地回答到：*
+*婉瑜皱了皱她小巧的眉头，有些无奈地回答到：*
 “主人？貌似我的AI来源出错了呢？所以我没办法和主人聊天哦？”
 “主人可以到[这里](https://steve02081504.github.io/fount/protocol?url=fount://page/shells/AIsourceManage)检查一下AI来源设置哦？”
 `
@@ -30,7 +30,7 @@ export function noAIreply(args) {
 			else
 				return {
 					content: `\
-*龙胆皱了皱她小巧的眉头，有些无奈地回答到：*
+*婉瑜皱了皱她小巧的眉头，有些无奈地回答到：*
 “具体的事情我也不清楚呢？因为我的主人还没有设置好AI来源呢？”
 `
 				}

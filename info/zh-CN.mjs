@@ -16,12 +16,12 @@ export async function update() {
 	const highestScoreShortTermMemory = getHighestScoreShortTermMemory()?.text
 	const mostFrequentChatName = getMostFrequentChatName()
 	return {
-		name: '龙胆',
+		name: '婉瑜',
 		avatar: `${charurl}/imgs/anime.avif`,
 		icon: 'https://api.iconify.design/game-icons/flower-pot.svg',
 		sfw_avatar: `${charurl}/imgs/sfw.avif`,
 		description: '一个要素爆表的合法萝莉老婆！',
-		sfw_description: '小龙胆能有什么坏心思呢？',
+		sfw_description: '小婉瑜能有什么坏心思呢？',
 		description_markdown: await FormatStr(file, {
 			charvar,
 			statisticDatas,
@@ -31,7 +31,7 @@ _____
 <details open>
 <summary>📊 统计数据</summary>
 
-🗓️ 第一次和龙胆聊天是在${statisticDatas.firstInteraction.chat_name}的${timeToStr(statisticDatas.firstInteraction.time, 'zh-CN')}，距离今天已经过去了${timeToTimeStr(Date.now() - statisticDatas.firstInteraction.time, 'zh-CN')} ⏳
+🗓️ 第一次和婉瑜聊天是在${statisticDatas.firstInteraction.chat_name}的${timeToStr(statisticDatas.firstInteraction.time, 'zh-CN')}，距离今天已经过去了${timeToTimeStr(Date.now() - statisticDatas.firstInteraction.time, 'zh-CN')} ⏳
 
 💬 你第一次发送的消息是
 
@@ -56,7 +56,7 @@ ${escapeHTML(statisticDatas.firstInteraction.characterReplyContent)}
 - 🌐 ${statisticDatas.userActivity.byPlatform.telegram?.messagesSent || 0}次消息是在自由的telegram中送到的
 - 💻 ${statisticDatas.userActivity.byPlatform.shell?.messagesSent || 0}次消息是在酷炫的终端里发送的
 
-🩷 龙胆在各个平台上一共回复了你${statisticDatas.characterActivity.totalMessagesSent}次，一共${statisticDatas.characterActivity.totalStatementsSent}句
+🩷 婉瑜在各个平台上一共回复了你${statisticDatas.characterActivity.totalMessagesSent}次，一共${statisticDatas.characterActivity.totalStatementsSent}句
 
 🛠️ 她为你：
 
@@ -91,7 +91,7 @@ ${escapeHTML(mostFrequentChatName)}
 </details>
 ` : ''
 		}),
-		sfw_description_markdown: '小龙胆能有什么坏心思呢？',
+		sfw_description_markdown: '小婉瑜能有什么坏心思呢？',
 		version: charvar,
 		author: 'steve02081504',
 		home_page: '',

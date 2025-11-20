@@ -34,7 +34,7 @@ export async function StatusBarPrompt(args, logical_results) {
 
 	if (await match_keys(args, ['状态栏功能关', '状态栏功能开'], 'user', 1))
 		result += `\
-龙胆自身作为虚拟角色不该对该额外输出的状态栏及其开启关闭有任何反应。
+婉瑜自身作为虚拟角色不该对该额外输出的状态栏及其开启关闭有任何反应。
 `
 
 	return {

@@ -29,7 +29,7 @@ export async function LongTermMemoryHandler(result, args) {
 	const { AddLongTimeLog } = args
 	let processed = false // Flag to indicate if any LTM command was handled
 	const tool_calling_log = {
-		name: '龙胆',
+		name: '婉瑜',
 		role: 'char',
 		content: '',
 		files: []

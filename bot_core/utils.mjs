@@ -46,7 +46,7 @@ export function updateBotNameMapping(platformAPI) {
 		userIdToNameMap[botPlatformId] = primaryDisplayName
 		nameToUserIdMap[primaryDisplayName] = botPlatformId
 
-		const normalizedBotName = (botPlatformUsername || BotCharname).replace(/gentian/ig, '龙胆')
+		const normalizedBotName = (botPlatformUsername || BotCharname).replace(/gentian/ig, '婉瑜')
 		if (normalizedBotName && (!nameToUserIdMap[normalizedBotName] || nameToUserIdMap[normalizedBotName] !== botPlatformId))
 			nameToUserIdMap[normalizedBotName] = botPlatformId
 

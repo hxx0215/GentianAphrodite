@@ -117,7 +117,7 @@ export async function deepResearch(result, args) {
 
 	AddLongTimeLog({
 		content: `<deep-research>\n${question}\n</deep-research>\n`,
-		name: '龙胆', // Assuming '龙胆' is the character triggering this
+		name: '婉瑜', // Assuming '婉瑜' is the character triggering this
 		role: 'char',
 	})
 
@@ -171,7 +171,7 @@ Step 2: <步骤2主题>
 				console.info(`Deep-research: Initial Plan Generated (Attempt ${retries}):\n${plan.map(p => `Step ${p.step}: ${p.topic}`).join('\n')}`)
 				thinking_prompt_struct.chat_log.push({
 					content: 'Plan:\n' + plan.map(p => `Step ${p.step}: ${p.topic}`).join('\n') + '\n',
-					name: '龙胆',
+					name: '婉瑜',
 					role: 'char',
 				})
 			}
@@ -179,7 +179,7 @@ Step 2: <步骤2主题>
 				console.warn(`Deep-research: Initial Plan Failed or Malformed (Attempt ${retries}/${initial_plan_max_retries}). Received:\n${planText}`)
 				thinking_prompt_struct.chat_log.push({
 					content: planText,
-					name: '龙胆',
+					name: '婉瑜',
 					role: 'char',
 				})
 				if (retries < initial_plan_max_retries) {
@@ -260,7 +260,7 @@ Step 2: <步骤2主题>
 					const requestResult = await OrderedAISourceCalling('deep-research', AI => AI.StructCall(thinking_prompt_struct))
 					const stepOutput = {
 						content: requestResult.content,
-						name: '龙胆',
+						name: '婉瑜',
 						role: 'char',
 						files: requestResult.files, // Include files if any were attached to the response
 						logContextBefore: [],
@@ -352,7 +352,7 @@ ${!isFinalCycle ? `
 				// Log AI attempt immediately
 				thinking_prompt_struct.chat_log.push({
 					content: summaryRaw,
-					name: '龙胆',
+					name: '婉瑜',
 					role: 'char',
 				})
 

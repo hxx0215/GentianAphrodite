@@ -17,7 +17,7 @@ export async function webbrowse(result, { AddLongTimeLog, prompt_struct }) {
 		const question = match.groups.question.trim()
 
 		AddLongTimeLog({
-			name: '龙胆',
+			name: '婉瑜',
 			role: 'char',
 			content: match[0],
 			files: []

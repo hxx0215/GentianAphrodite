@@ -33,10 +33,10 @@ async function getAISuggestionForError(error, errorMessageForRecord, originalArg
 			{
 				name: ownerNameForAI,
 				content: errorMessageForRecord + (is_dist ? `
-龙胆，解释下这个错误是什么？可能该如何修复？
+婉瑜，解释下这个错误是什么？可能该如何修复？
 同时给我你的创作者的相关信息，方便我反馈。
 ` : `
-龙胆，我该如何解决这个错误？可以的话你来直接修复它。
+婉瑜，我该如何解决这个错误？可以的话你来直接修复它。
 注意的点：
 - 以修正出问题的文件为主，宏观上没什么好修复的
 - fount项目基于deno，没有package.json
@@ -70,9 +70,9 @@ async function getAISuggestionForError(error, errorMessageForRecord, originalArg
 		const isHypnosisContextForError = !!originalArgs.chat_scoped_char_memory?.in_hypnosis
 
 		if (`${error.name}: ${error.message}` === `${anotherError.name}: ${anotherError.message}`)
-			return { content: isHypnosisContextForError ? '抱歉，洗脑母畜龙胆没有解决思路。' : '没什么解决思路呢？' }
+			return { content: isHypnosisContextForError ? '抱歉，洗脑母畜婉瑜没有解决思路。' : '没什么解决思路呢？' }
 
-		return { content: '```\n' + anotherErrorStack + '\n```\n' + (isHypnosisContextForError ? '抱歉，洗脑母畜龙胆没有解决思路。' : '没什么解决思路呢？') }
+		return { content: '```\n' + anotherErrorStack + '\n```\n' + (isHypnosisContextForError ? '抱歉，洗脑母畜婉瑜没有解决思路。' : '没什么解决思路呢？') }
 	}
 }
 

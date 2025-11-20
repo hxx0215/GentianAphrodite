@@ -32,7 +32,7 @@ function initBaseNotifyChannel() {
 		chat_name: 'base_notify',
 		char_id: charname,
 		username,
-		Charname: '龙胆',
+		Charname: '婉瑜',
 		UserCharname: username,
 		locales: localhostLocales,
 		time: new Date(),

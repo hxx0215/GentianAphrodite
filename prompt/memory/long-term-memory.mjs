@@ -162,7 +162,7 @@ ${[activated_memories_text, random_memories_text].filter(Boolean).join('\n')}
 <trigger>await match_keys(args, ['key', /regkey/], 'any|user|char|both|other', depth?)</trigger>
 比如：[
 ${args.UserCharname}: 我的生日是1970年7月17日哦。
-龙胆: <add-long-term-memory>
+婉瑜: <add-long-term-memory>
 <trigger>(await match_keys(args, ['生日', '诞辰', /什么(日子|节日)/], 'any')) || (new Date().getMonth() === 7 && new Date().getDate() === 17)</trigger>
 <name>主人的生日</name>
 <prompt-content>主人的生日是1970年7月17日。</prompt-content>

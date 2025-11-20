@@ -92,7 +92,7 @@ ${args.screen}
 		},
 		chat_name: 'shell-assist-' + new Date().getTime(),
 		char_id: 'gentian',
-		Charname: '龙胆',
+		Charname: '婉瑜',
 		UserCharname: args.UserCharname,
 		locales: localhostLocales,
 		time: new Date(),
@@ -109,7 +109,7 @@ ${args.screen}
 	newUserMessage(args.command_now, 'shell')
 	if (AIsuggestion) newCharReplay(AIsuggestion.content, 'shell')
 	return {
-		name: '龙胆',
+		name: '婉瑜',
 		recommend_command: AIsuggestion?.recommend_command,
 		content: AIsuggestion?.content,
 		chat_scoped_char_memory: args.chat_scoped_char_memory,

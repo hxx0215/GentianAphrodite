@@ -15,7 +15,7 @@ export async function file_change(result, { AddLongTimeLog }) {
 	const view_files_match = result.content.match(/<view-file>(?<paths>[^]*?)<\/view-file>/)?.groups?.paths
 	let regen = false
 	const tool_calling_log = {
-		name: '龙胆',
+		name: '婉瑜',
 		role: 'char',
 		content: '',
 		files: []

@@ -126,8 +126,8 @@
     "achievements": {
         "use_new_tool": {
             "name": "新工具大师",
-            "description": "让龙胆使用了一次新工具。",
-            "locked_description": "让龙胆使用一次新工具。"
+            "description": "让婉瑜使用了一次新工具。",
+            "locked_description": "让婉瑜使用一次新工具。"
         }
     }
     ```

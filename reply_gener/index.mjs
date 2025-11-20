@@ -60,7 +60,7 @@ export function getLongTimeLogAdder(result, prompt_struct, max_forever_looping_n
 			})
 			sim_check_before.push(entry.content)
 			if (forever_looping_num >= max_forever_looping_num)
-				throw new Error('infinite loop by AI') // 给龙胆：别删这个，真删了到循环时你就卡死了
+				throw new Error('infinite loop by AI') // 给婉瑜：别删这个，真删了到循环时你就卡死了
 			else if (forever_looping_num >= warning_forever_looping_num)
 				AddLongTimeLog({
 					name: 'system',
@@ -90,7 +90,7 @@ export async function GetReply(args) {
 		args.plugins.telegram_api ??= await get_telegram_api_plugin()
 		const prompt_struct = await buildPromptStruct(args)
 		prompt_struct.alternative_charnames = [
-			'Gentian', /Gentian(•|·)Aphrodite/, '龙胆', /龙胆(•|·)阿芙萝黛蒂/
+			'Gentian', /Gentian(•|·)Aphrodite/, '婉瑜', /婉瑜(•|·)阿芙萝黛蒂/
 		]
 		const logical_results = await buildLogicalResults(args, prompt_struct, 0)
 		/** @type {chatReply_t} */
@@ -148,7 +148,7 @@ export async function GetReply(args) {
 				const lastlog = prompt_struct.chat_log.slice(-1)[0]
 				lastlog.logContextAfter ??= []
 				lastlog.logContextAfter.push({
-					name: '龙胆',
+					name: '婉瑜',
 					role: 'char',
 					content: '<-<null>->',
 					charVisibility: [args.char_id]

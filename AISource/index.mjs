@@ -60,7 +60,7 @@ export function GetAISourceCallingOrder(name) {
 	// 对于不同任务需求，按照指定顺序尝试调用AI
 	switch (name) {
 		case 'deep-research':
-			// 我们假设用户给龙胆设置的AI来源中，来源的智商顺序以以下顺序排列：
+			// 我们假设用户给婉瑜设置的AI来源中，来源的智商顺序以以下顺序排列：
 			// 详细思考模型，专家模型，正经使用模型，网页浏览模型，色情模型，简易逻辑模型
 			// 在详细思考任务中，我们以此顺序回落AI来源
 			return ['deep-research', 'expert', 'sfw', 'web-browse', 'nsfw', 'logic', 'from-other']

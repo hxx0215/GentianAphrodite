@@ -58,7 +58,7 @@ ${statisticStr}
 
 <!--exlinks-->
 
-卡片只在[龙胆社区](https://t.me/GentianAphrodite)配布，远离倒卖付费。
+卡片只在[婉瑜社区](https://t.me/GentianAphrodite)配布，远离倒卖付费。
 
 <!--/exlinks-->
 

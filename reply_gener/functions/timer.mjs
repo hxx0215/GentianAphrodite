@@ -15,7 +15,7 @@ export async function timer(result, args) {
 	let processed = false
 
 	const tool_calling_log = {
-		name: '龙胆',
+		name: '婉瑜',
 		role: 'char',
 		content: '',
 		files: []
@@ -219,7 +219,7 @@ ${chat_log_snip}
 		})
 		if (!result) return
 		result.logContextBefore.push(logEntry)
-		await channel.AddChatLogEntry({ name: '龙胆', ...result })
+		await channel.AddChatLogEntry({ name: '婉瑜', ...result })
 		newCharReplay(result.content, platform || 'chat')
 	})
 }

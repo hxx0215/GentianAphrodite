@@ -245,7 +245,7 @@ ${selectedTask.get_content()}
 	})
 	if (!result) return
 	result.logContextBefore.push(logEntry)
-	await RealityChannel.AddChatLogEntry({ name: '龙胆', ...result })
+	await RealityChannel.AddChatLogEntry({ name: '婉瑜', ...result })
 }
 
 const IDLE_INTERVAL_MS = 15 * 60 * 1000 // 15 minutes

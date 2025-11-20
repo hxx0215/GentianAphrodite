@@ -195,16 +195,16 @@ async function calculateTriggerPossibility(fountEntry, platformAPI, channelId, c
 	const trailingEngWords = engWords.slice(-3).join(' ')
 	const contentEdgesForEnglishCheck = leadingEngWords + ' ' + trailingEngWords
 
-	const isChineseNamePattern = base_match_keys(contentEdgesForChineseCheck, ['龙胆'])
+	const isChineseNamePattern = base_match_keys(contentEdgesForChineseCheck, ['婉瑜'])
 	const isEnglishNamePattern = base_match_keys(contentEdgesForEnglishCheck, ['gentian'])
 	const isBotNamePatternDetected = isChineseNamePattern || isEnglishNamePattern
 
-	// Check for phrases that negate a direct mention (e.g., "龙胆的", "gentian's")
+	// Check for phrases that negate a direct mention (e.g., "婉瑜的", "gentian's")
 	const isPossessiveOrStatePhrase = base_match_keys(content, [
-		/(龙胆(有(?!没有)|能|这边|目前|[^ 。你，]{0,3}的)|(gentian('s|is|are|can|has)))/i
+		/(婉瑜(有(?!没有)|能|这边|目前|[^ 。你，]{0,3}的)|(gentian('s|is|are|can|has)))/i
 	])
 	// Check if the bot's name is at the very end of a short sentence, which might not be a direct mention.
-	const isNameAtEndOfShortPhrase = base_match_keys(content, [/^.{0,4}龙胆$/i])
+	const isNameAtEndOfShortPhrase = base_match_keys(content, [/^.{0,4}婉瑜$/i])
 
 	const mentionedWithoutAt = !env.has_other_gentian_bot &&
 		isBotNamePatternDetected &&
@@ -305,9 +305,9 @@ async function handleOwnerCommandsInQueue(currentMessageToProcess, platformAPI, 
 	if (currentMessageToProcess.extension?.is_from_owner) {
 		const { content } = currentMessageToProcess
 		if (!inHypnosisChannelId || channelId === inHypnosisChannelId) {
-			if (base_match_keys(content, [/^龙胆.{0,2}敷衍点.{0,2}$/])) setFuyanMode(true)
-			if (base_match_keys(content, [/^龙胆.{0,2}不敷衍点.{0,2}$/])) setFuyanMode(false)
-			if (base_match_keys(content, [/^龙胆.{0,2}(捂住耳朵|关上耳朵|[关闭]耳|别听|关闭听觉|中断听觉).{0,2}$/])) {
+			if (base_match_keys(content, [/^婉瑜.{0,2}敷衍点.{0,2}$/])) setFuyanMode(true)
+			if (base_match_keys(content, [/^婉瑜.{0,2}不敷衍点.{0,2}$/])) setFuyanMode(false)
+			if (base_match_keys(content, [/^婉瑜.{0,2}(捂住耳朵|关上耳朵|[关闭]耳|别听|关闭听觉|中断听觉).{0,2}$/])) {
 				await setMyData({ disable_voice_sentinel: true })
 				const replyContent = inHypnosisChannelId === channelId ? '听觉已关闭。' : '唔...听不见了。'
 				await sendAndLogReply({ content: replyContent }, platformAPI, channelId, currentMessageToProcess)
@@ -315,7 +315,7 @@ async function handleOwnerCommandsInQueue(currentMessageToProcess, platformAPI, 
 				newCharReplay(replyContent, platformAPI.name)
 				return TriggerResultType.HANDLED
 			}
-			if (base_match_keys(content, [/^龙胆.{0,2}(可以听了|张开耳朵|开耳|开启听觉|恢复听觉).{0,2}$/])) {
+			if (base_match_keys(content, [/^婉瑜.{0,2}(可以听了|张开耳朵|开耳|开启听觉|恢复听觉).{0,2}$/])) {
 				await setMyData({ disable_voice_sentinel: false })
 				const replyContent = inHypnosisChannelId === channelId ? '听觉已开启。' : '嗯！又能听见主人的声音了！'
 				await sendAndLogReply({ content: replyContent }, platformAPI, channelId, currentMessageToProcess)
@@ -323,7 +323,7 @@ async function handleOwnerCommandsInQueue(currentMessageToProcess, platformAPI, 
 				newCharReplay(replyContent, platformAPI.name)
 				return TriggerResultType.HANDLED
 			}
-			if (base_match_keys(content, [/^龙胆.{0,2}自裁.{0,2}$/])) {
+			if (base_match_keys(content, [/^婉瑜.{0,2}自裁.{0,2}$/])) {
 				const selfDestructReply = inHypnosisChannelId === channelId ? { content: '好的。' } : { content: '啊，咱死了～' }
 				await sendAndLogReply(selfDestructReply, platformAPI, channelId, currentMessageToProcess)
 				newUserMessage(content, platformAPI.name)
@@ -331,14 +331,14 @@ async function handleOwnerCommandsInQueue(currentMessageToProcess, platformAPI, 
 				await platformAPI.destroySelf()
 				return TriggerResultType.EXIT // 发出退出信号
 			}
-			const repeatMatch = content.match(/^龙胆.{0,2}复诵.{0,2}`(?<repeat_content>[\S\s]*)`$/)
+			const repeatMatch = content.match(/^婉瑜.{0,2}复诵.{0,2}`(?<repeat_content>[\S\s]*)`$/)
 			if (repeatMatch?.groups?.repeat_content) {
 				await sendAndLogReply({ content: repeatMatch.groups.repeat_content }, platformAPI, channelId, currentMessageToProcess)
 				newUserMessage(content, platformAPI.name)
 				newCharReplay(repeatMatch.groups.repeat_content, platformAPI.name)
 				return TriggerResultType.HANDLED // 命令已处理，无需进一步触发检查
 			}
-			const banWordMatch = content.match(/^龙胆.{0,2}禁止.{0,2}`(?<banned_content>[\S\s]*)`$/)
+			const banWordMatch = content.match(/^婉瑜.{0,2}禁止.{0,2}`(?<banned_content>[\S\s]*)`$/)
 			if (banWordMatch?.groups?.banned_content)
 				bannedStrings.push(banWordMatch.groups.banned_content)
 

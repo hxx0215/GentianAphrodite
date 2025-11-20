@@ -78,7 +78,7 @@ const notify_plugin = {
 通知内容
 </notify>
 像这样：
-龙胆: 我注意到主人的领带没系好，得通知主人一下才行。
+婉瑜: 我注意到主人的领带没系好，得通知主人一下才行。
 <notify>主人！领带没系好哦！</notify>
 `,
 						}
@@ -128,7 +128,7 @@ export function initRealityChannel() {
 		chat_name: 'reality',
 		char_id: charname,
 		username,
-		Charname: '龙胆',
+		Charname: '婉瑜',
 		UserCharname: username,
 		locales: localhostLocales,
 		time: new Date(),
@@ -141,12 +141,12 @@ export function initRealityChannel() {
 `
 			},
 			{
-				name: '龙胆',
+				name: '婉瑜',
 				role: 'char',
 				content: `\
-唔姆！龙胆明白，这些话语是龙胆自己的悄悄话，主人大人是看不到的呢！
-不过呀，龙胆可以通过魔法通知，偷偷地给主人大人发送专属的小消息哦！💖
-<notify>测试通知</notify>
+				唔姆！婉瑜明白，这些话语是婉瑜自己的悄悄话，主人大人是看不到的呢！
+				不过呀，婉瑜可以通过魔法通知，偷偷地给主人大人发送专属的小消息哦！💖
+				<notify>测试通知</notify>
 看！小通知已经成功飞到主人大人那里啦！✨
 `
 			},

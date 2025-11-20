@@ -18,7 +18,7 @@ export async function DeepResearchPrompt(args, logical_results) {
 该模式下你可以反复思考问题直到得到满意回答。
 如：[
 ${args.UserCharname}: 如果昨天是明天的话就好了，那么今天就是周五了。请问：句中的今天可能是周几？
-龙胆:${' '}
+婉瑜:${' '}
 <deep-research>如果昨天是明天的话就好了，那么今天就是周五了。句中的今天可能是周几？</deep-research>
 ]
 标签中只需要附上问题和有助于问题解决的信息，不需要回答或解释。

@@ -17,7 +17,7 @@ export async function ShortTermMemoryHandler(result, { AddLongTimeLog }) {
 	const deleteMatch = result.content.match(/<delete-short-term-memories>(?<keyword>[^\n]*?)<\/delete-short-term-memories>/s)
 	if (deleteMatch?.groups?.keyword) {
 		AddLongTimeLog({
-			name: '龙胆',
+			name: '婉瑜',
 			role: 'char',
 			content: `<delete-short-term-memories>${deleteMatch.groups.keyword}</delete-short-term-memories>\n`,
 			files: []

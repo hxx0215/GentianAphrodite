@@ -22,7 +22,7 @@ export async function googlesearch(result, { AddLongTimeLog }) {
 		}
 
 		AddLongTimeLog({
-			name: '龙胆',
+			name: '婉瑜',
 			role: 'char',
 			content: '<google-search>' + searchQueryContent + '</google-search>',
 			files: []

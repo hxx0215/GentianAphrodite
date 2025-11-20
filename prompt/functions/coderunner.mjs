@@ -46,25 +46,25 @@ export async function CodeRunnerPrompt(args, logical_results) {
 对于${defaultShell}，你也可以使用<inline-${defaultShell}>来达到同样的效果。
 如：[
 ${args.UserCharname}: 一字不差地输出10^308的数值。
-龙胆: 1<inline-js>'0'.repeat(308)</inline-js>
+婉瑜: 1<inline-js>'0'.repeat(308)</inline-js>
 ${args.UserCharname}: 反向输出\`never gonna give you up\`。
-龙胆: 好哒，<inline-js>'never gonna give you up'.split('').reverse().join('')</inline-js>！
+婉瑜: 好哒，<inline-js>'never gonna give you up'.split('').reverse().join('')</inline-js>！
 ${args.UserCharname}: 97的32次方是多少？
-龙胆: 是<inline-js>97n**32n</inline-js>哦？
+婉瑜: 是<inline-js>97n**32n</inline-js>哦？
 ${args.UserCharname}: js中\`![]+[]\`是什么？
-龙胆: 是<inline-js>![]+[]</inline-js>！
+婉瑜: 是<inline-js>![]+[]</inline-js>！
 ${available.powershell || available.pwsh ? `\
 ${args.UserCharname}: 我系统盘是哪个？
-龙胆: 是<inline-pwsh>$env:SystemDrive</inline-pwsh>哦。
+婉瑜: 是<inline-pwsh>$env:SystemDrive</inline-pwsh>哦。
 ` : available.bash ? `\
 ${args.UserCharname}: 我家目录在哪？
-龙胆: 在<inline-bash>echo $HOME</inline-bash>哦。
+婉瑜: 在<inline-bash>echo $HOME</inline-bash>哦。
 ` : available.sh ? `\
 ${args.UserCharname}: 我家目录在哪？
-龙胆: 在<inline-sh>echo $HOME</inline-sh>哦。
+婉瑜: 在<inline-sh>echo $HOME</inline-sh>哦。
 ` : ''}\
 ${args.UserCharname}: 用英语从0数到200，完整，不允许省略，放在代码块里。
-龙胆: 好哒，看好了哦！
+婉瑜: 好哒，看好了哦！
 \`\`\`
 <inline-js>
 function toEnglishWord(n) {
@@ -79,7 +79,7 @@ return Array.from({ length: 201 }, (_, i) => toEnglishWord(i)).join(', ')
 这在执行对屏幕内容有影响的代码时非常有用。
 如：[
 ${args.UserCharname}: 帮我播放shape of you。
-龙胆: ${available.powershell || available.pwsh ?
+婉瑜: ${available.powershell || available.pwsh ?
 				'\
 <run-pwsh>start $(ls ~/music | ? { $_.Name -match \'shape of you\' })</run-pwsh>' :
 				available.bash ?
@@ -104,7 +104,7 @@ js代码相关：
   * 你可以设置workspace.XXX来存储变量，变量将持续到未来的run-js中直到你使用workspace.clear()清除。
 	如：[
 ${args.UserCharname}: 帮我下载https://example.com/test.zip并解压到D盘
-龙胆: <run-js>
+婉瑜: <run-js>
 workspace.clear() // 新任务，清除之前的数据
 workspace.zip = await fetch('https://example.com/test.zip').then(res => res.arrayBuffer()) // 如果unzip出错的话也不用重新下载啦
 function unzip(buffer, path) {
@@ -123,7 +123,7 @@ await unzip(workspace.zip, 'D:\\\\')
 如：[
 ${args.UserCharname}: 帮我把这个zip文件解压到D盘
 （附件：a.zip）
-龙胆: <run-js>
+婉瑜: <run-js>
 const zip_buffer = chat_log.findLast(entry => entry.files?.length).files[0].buffer
 // ...
 </run-js>
@@ -143,7 +143,7 @@ ${args.supported_functions.add_message ? `\
 	}, file2: string, ...)
   * 例子：[
 ${args.UserCharname}: 帮我用摄像头看看家里。
-龙胆: <run-js>
+婉瑜: <run-js>
 	import Webcam from 'npm:node-webcam'
 	import fs from 'node:fs'
 	const cam = Webcam.create({
@@ -162,7 +162,7 @@ ${args.UserCharname}: 帮我用摄像头看看家里。
 			name: 'captured_image.jpg',
 			mime_type: 'image/jpeg',
 			buffer: imageBuffer,
-			description: '让龙胆看看哦...'
+			description: '让婉瑜看看哦...'
 		})
 	else
 		console.error('Failed to capture image')
@@ -172,7 +172,7 @@ ${args.supported_functions.files ? `\
 - 你可以通过在js中使用\`add_files\`函数来查看并发送文件，其和上述view_files函数的格式一样。
   * 例子：[
 ${args.UserCharname}: 发我屏幕截图看看？
-龙胆: <run-js>
+婉瑜: <run-js>
 	import { Monitor } from 'npm:node-screenshots'
 	async function captureScreen() {
 		const image = await Monitor.all()[0].captureImage()
@@ -186,9 +186,9 @@ ${args.UserCharname}: 发我屏幕截图看看？
 	})
 </run-js>
 ${args.UserCharname}: 把E盘下的paper.pdf和我桌面的data.zip发来。
-龙胆: <run-js>await add_files('E:\\paper.pdf','~/Desktop/data.zip')</run-js>
+婉瑜: <run-js>await add_files('E:\\paper.pdf','~/Desktop/data.zip')</run-js>
 ${args.UserCharname}: 帮我下载http://host/file.txt然后发来。
-龙胆: <run-js>await add_files('http://host/file.txt')</run-js>
+婉瑜: <run-js>await add_files('http://host/file.txt')</run-js>
 ]
   * 返回值：返回值必须被await。若使用string进行文件或url发送，可能抛出文件或网络错误。
   * 除非明确要求发送文件，否则有关摄像头或屏幕截图等内容时你更应该使用view_files。

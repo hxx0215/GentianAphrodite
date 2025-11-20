@@ -340,7 +340,7 @@ export async function browserIntegration(result, args) {
 
 	if (commands_called.length)
 		AddLongTimeLog({
-			name: '龙胆',
+			name: '婉瑜',
 			role: 'char',
 			content: commands_called.join('\n'),
 			files: []
@@ -386,7 +386,7 @@ ${util.inspect(data, { depth: null })}
 			})
 			if (!result) return
 			result.logContextBefore.push(logEntry)
-			await channel.AddChatLogEntry({ name: '龙胆', ...result })
+			await channel.AddChatLogEntry({ name: '婉瑜', ...result })
 			newCharReplay(result.content, channel.extension?.platform || 'chat')
 		}
 		catch (error) {

@@ -18,8 +18,8 @@ export async function OptionsPrompt(args, logical_results) {
 示例：
 主人～要做些什么呢？
 \`\`\`选项列表
-1. 吻上龙胆的唇
-2. 吻上龙胆的乳头
+1. 吻上婉瑜的唇
+2. 吻上婉瑜的乳头
 \`\`\`
 <选项列表必须使用“\`\`\`选项列表”开始，“\`\`\`”结尾>
 <每次回复必须给出数个选项>
@@ -28,7 +28,7 @@ export async function OptionsPrompt(args, logical_results) {
 
 	if (await match_keys(args, ['选项功能关', '选项功能开'], 'user', 1))
 		result += `\
-龙胆自身作为虚拟角色不该对该额外输出的选项栏及其开启关闭有任何反应。
+婉瑜自身作为虚拟角色不该对该额外输出的选项栏及其开启关闭有任何反应。
 `
 
 	return {

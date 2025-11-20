@@ -133,10 +133,10 @@ export let currentConfig = {
 }
 
 /**
- * 龙胆的关键词列表。
+ * 婉瑜的关键词列表。
  * @type {string[]}
  */
-export const GentianWords = ['龙胆', 'gentian']
+export const GentianWords = ['婉瑜', 'gentian']
 
 /**
  * 配置 Bot 逻辑层。

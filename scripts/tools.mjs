@@ -355,6 +355,9 @@ const timeToStrSetting = { weekday: 'long', year: 'numeric', month: 'long', day:
  * @returns {string} - 格式化后的日期时间字符串。
  */
 export function timeToStr(date, locale, setting = timeToStrSetting) {
+	if (locale === 'C'){
+		return new Date(date).toString()
+	}
 	return new Date(date).toLocaleString(locale || undefined, setting)
 }
 const MS_PER_SECOND = 1000

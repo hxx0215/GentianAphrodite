@@ -44,7 +44,7 @@ ${code}
 		const reply = await GetReply(new_req)
 		if (!reply) return
 		reply.logContextBefore.push(feedback)
-		await logger({ name: '龙胆', ...reply })
+		await logger({ name: '婉瑜', ...reply })
 		newCharReplay(reply.content, args.extension?.platform || 'chat')
 	}
 	catch (error) {
@@ -180,7 +180,7 @@ export async function coderunner(result, args) {
 		unlockAchievement('use_coderunner')
 		statisticDatas.toolUsage.codeRuns++
 		AddLongTimeLog({
-			name: '龙胆',
+			name: '婉瑜',
 			role: 'char',
 			content: '<run-js>' + jsrunner + '</run-js>' + (wait_screen ? `\n<wait-screen>${wait_screen}</wait-screen>` : ''),
 			files: []
@@ -205,7 +205,7 @@ export async function coderunner(result, args) {
 			unlockAchievement('use_coderunner')
 			statisticDatas.toolUsage.codeRuns++
 			AddLongTimeLog({
-				name: '龙胆',
+				name: '婉瑜',
 				role: 'char',
 				content: `<run-${shell_name}>` + runner + `</run-${shell_name}>` + (wait_screen ? `\n<wait-screen>${wait_screen}</wait-screen>` : ''),
 				files: []
@@ -244,7 +244,7 @@ export async function coderunner(result, args) {
 		)
 		let i = 0
 		result.logContextBefore.push({
-			name: '龙胆',
+			name: '婉瑜',
 			role: 'char',
 			content: original,
 			files: result.files,
@@ -261,7 +261,7 @@ export async function coderunner(result, args) {
 	catch (error) {
 		console.error('内联js代码执行失败：', error)
 		AddLongTimeLog({
-			name: '龙胆',
+			name: '婉瑜',
 			role: 'char',
 			content: result.content,
 			files: result.files,
@@ -304,7 +304,7 @@ export async function coderunner(result, args) {
 			)
 			let i = 0
 			result.logContextBefore.push({
-				name: '龙胆',
+				name: '婉瑜',
 				role: 'char',
 				content: original,
 				files: result.files,
@@ -321,7 +321,7 @@ export async function coderunner(result, args) {
 		catch (error) {
 			console.error(`内联${shell_name}代码执行失败：`, error)
 			AddLongTimeLog({
-				name: '龙胆',
+				name: '婉瑜',
 				role: 'char',
 				content: result.content,
 				files: result.files,
