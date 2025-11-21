@@ -28,7 +28,7 @@ export async function ScreenshotPrompt(args, logical_results) {
 			additional_chat_log.push({
 				name: 'system',
 				role: 'system',
-				content:['当前环境没法获取到截图，是不是没有显示器或者显卡']
+				content:['当前环境没法获取到截图，是不是没有显示器']
 			})
 		}else{
 		let qrcodes
