@@ -356,9 +356,10 @@ const timeToStrSetting = { weekday: 'long', year: 'numeric', month: 'long', day:
  */
 export function timeToStr(date, locale, setting = timeToStrSetting) {
 	if (locale === 'C'){
-		return new Date(date).toString()
+		return new Date(date).toLocaleDateString(undefined, setting)
+	}else{
+		return new Date(date).toLocaleString(locale || undefined, setting)
 	}
-	return new Date(date).toLocaleString(locale || undefined, setting)
 }
 const MS_PER_SECOND = 1000
 const MS_PER_MINUTE = MS_PER_SECOND * 60
