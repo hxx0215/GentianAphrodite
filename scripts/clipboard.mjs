@@ -118,6 +118,9 @@ clipboardListener.on('change', onClipboardChange)
  * 开始监听剪贴板的变化。
  */
 export function startClipboardListening() {
+	if (process.platform === 'linux' && !Deno.env.get('DISPLAY'))
+		return
+
 	try { clipboardListener.startListening() }
 	catch (error) { console.error('Failed to start clipboard listening:', error) }
 }
