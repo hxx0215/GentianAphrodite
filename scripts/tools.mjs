@@ -437,6 +437,11 @@ export function timeToTimeStr(diff, locale = 'en-US') {
  * @returns {Promise<Buffer>} - PNG 格式的屏幕截图 Buffer。
  */
 export async function captureScreen() {
+	if (process.platform === 'linux' && !Deno.env.get('DISPLAY')){
+		console.log('no display just return')
+		return null
+	}
+
 	const { Monitor } = await import('npm:node-screenshots')
 	const monitors = Monitor.all()
 	const mainMonitor = monitors[0]

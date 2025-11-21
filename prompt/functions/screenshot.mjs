@@ -24,6 +24,13 @@ export async function ScreenshotPrompt(args, logical_results) {
 	))) try {
 		/** @type {Buffer} */
 		const screenShot = await captureScreen()
+		if (!screenShot){
+			additional_chat_log.push({
+				name: 'system',
+				role: 'system',
+				content:['当前环境没法获取到截图，是不是没有显示器或者显卡']
+			})
+		}else{
 		let qrcodes
 		try {
 			qrcodes = await decodeQrCodeFromBuffer(screenShot)
@@ -47,6 +54,8 @@ export async function ScreenshotPrompt(args, logical_results) {
 			}]
 		});
 		(((args.extension ??= {}).enable_prompts ??= {}).masterRecognize ??= {}).photo = true
+
+		}
 	} catch (e) { console.error(e) }
 
 	return {
