@@ -30,7 +30,7 @@ export async function SystemPrompt(args, logical_results) {
 
 	result.push(CoreRulesPrompt(args, logical_results))
 
-	result.push(MasterRecognizePrompt(args, logical_results))
+	// result.push(MasterRecognizePrompt(args, logical_results))
 
 	result.push(NullReplayPrompt(args, logical_results))
 
