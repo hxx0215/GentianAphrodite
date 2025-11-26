@@ -4,7 +4,7 @@ import { config } from '../config/index.mjs'
 import { discordPlatformAPI } from '../interfaces/discord/index.mjs'
 import { telegramPlatformAPI } from '../interfaces/telegram/index.mjs'
 import { Charbase, GentianAphrodite } from '../charbase.ts'
-const {charname, username} = Charbase
+const {charname} = Charbase
 
 /**
  * Fount 世界观对象，定义了 AI 角色在“真实世界”中的行为准则和能力。
@@ -172,9 +172,9 @@ export function initRealityChannel() {
 		world: realityWorld,
 		chat_name: 'reality',
 		char_id: charname,
-		username,
+		username: Charbase.username,
 		Charname: '婉瑜',
-		UserCharname: username,
+		UserCharname: Charbase.username,
 		locales: localhostLocales,
 		time: new Date(),
 		chat_log: [

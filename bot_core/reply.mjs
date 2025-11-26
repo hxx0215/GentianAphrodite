@@ -6,7 +6,6 @@ import { channelChatLogs, channelLastSendMessageTime, channelCharScopedMemory, u
 import { fetchFilesForMessages, updateBotNameMapping } from './utils.mjs'
 import { Charbase, GentianAphrodite } from '../charbase.ts'
 const BotCharname = Charbase.charname
-const FountUsername = Charbase.username
 
 /**
  * fount 聊天回复对象类型。
@@ -79,10 +78,9 @@ async function buildReplyRequest(triggerMessage, platformAPI, channelId, request
 		userCharNameForAI,
 		replyToCharName,
 	} = requestData
-
 	return {
 		supported_functions: { markdown: true, files: true, add_message: true, mathjax: true, html: false, unsafe_html: false },
-		username: FountUsername,
+		username: Charbase.username,
 		chat_name: chatNameForAI,
 		char_id: BotCharname,
 		Charname: botNameForAIChat,
@@ -91,7 +89,7 @@ async function buildReplyRequest(triggerMessage, platformAPI, channelId, request
 		locales: localhostLocales,
 		time: new Date(),
 		world: platformWorld,
-		user: loadDefaultPersona(FountUsername),
+		user: loadDefaultPersona(Charbase.username),
 		char: GentianAphrodite,
 		other_chars: [],
 		plugins: activePlugins,

@@ -1,7 +1,7 @@
 import { localhostLocales } from '../../../../../../src/scripts/i18n.mjs'
 import { notify as fount_notify } from '../../../../../../src/scripts/notify.mjs'
 import { Charbase, GentianAphrodite } from '../charbase.ts'
-const {charname, username} = Charbase
+const {charname} = Charbase
 
 /**
  * 可通知渠道的数组。
@@ -32,9 +32,9 @@ function initBaseNotifyChannel() {
 		char: GentianAphrodite,
 		chat_name: 'base_notify',
 		char_id: charname,
-		username,
+		username: Charbase.username,
 		Charname: '婉瑜',
-		UserCharname: username,
+		UserCharname: Charbase.username,
 		locales: localhostLocales,
 		time: new Date(),
 		chat_log: [],

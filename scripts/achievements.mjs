@@ -4,7 +4,7 @@
  */
 import { unlockAchievement as base } from '../../../../../../src/public/shells/achievements/src/api.mjs'
 import { Charbase } from '../charbase.ts'
-const {charname, username} = Charbase
+const {charname } = Charbase
 
 /**
  * 为当前角色解锁一项成就。
@@ -12,5 +12,5 @@ const {charname, username} = Charbase
  * @returns {Promise<void>}
  */
 export async function unlockAchievement(id) {
-	return await base(username, 'chars', charname, id)
+	return await base(Charbase.username, 'chars', charname, id)
 }

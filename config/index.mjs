@@ -7,7 +7,7 @@ import { resetIdleTimer } from '../event_engine/on_idle.mjs'
 import { checkVoiceSentinel, stopVoiceSentinel } from '../event_engine/voice_sentinel.mjs'
 import { mergeTree } from '../scripts/tools.mjs'
 import { Charbase } from '../charbase.ts'
-const {chardir, charname, username} = Charbase
+const {chardir, charname} = Charbase
 
 /**
  * 获取配置界面的显示内容。
@@ -59,7 +59,7 @@ export function GetData() {
  */
 export async function SetData(data) {
 	await setAISourceData(data.AIsources || getAISourceData())
-	if (data.plugins) plugins = Object.fromEntries(await Promise.all(data.plugins.map(async x => [x, await loadPlugin(username, x)])))
+	if (data.plugins) plugins = Object.fromEntries(await Promise.all(data.plugins.map(async x => [x, await loadPlugin(Charbase.username, x)])))
 	Object.assign(config.deep_research, data.deep_research)
 
 	config.disable_idle_event = data.disable_idle_event
@@ -80,5 +80,5 @@ export async function SetData(data) {
  */
 export async function setMyData(data) {
 	const { setPartData } = await import('../../../../../../src/public/shells/config/src/manager.mjs')
-	return setPartData(username, 'chars', charname, mergeTree(await GetData(), data))
+	return setPartData(Charbase.username, 'chars', charname, mergeTree(await GetData(), data))
 }

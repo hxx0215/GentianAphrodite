@@ -5,7 +5,6 @@ import { userIdToNameMap, inHypnosisChannelId } from './state.mjs'
 import { fetchFilesForMessages } from './utils.mjs'
 import { Charbase, GentianAphrodite } from '../charbase.ts'
 const BotCharname = Charbase.charname
-const FountUsername = Charbase.username
 
 
 /**
@@ -85,7 +84,7 @@ async function generateInsult(group, platformAPI, defaultChannel, channelHistory
 
 	const insultRequest = {
 		supported_functions: { markdown: true, files: false, add_message: false, mathjax: false, html: false, unsafe_html: false },
-		username: FountUsername,
+		username: Charbase.username,
 		chat_name: platformAPI.getChatNameForAI(group.id, { extension: { platform_guild_id: group.id, platform_channel_id: defaultChannel.id, platform: platformAPI.name } }),
 		char_id: BotCharname,
 		Charname: botNameForAIChat,
@@ -94,7 +93,7 @@ async function generateInsult(group, platformAPI, defaultChannel, channelHistory
 		locales: localhostLocales,
 		time: new Date(),
 		world: platformAPI.getPlatformWorld?.() || null,
-		user: loadDefaultPersona(FountUsername),
+		user: loadDefaultPersona(Charbase.username),
 		char: GentianAphrodite,
 		other_chars: [],
 		plugins: { ...platformAPI.getPlatformSpecificPlugins?.({ extension: { platform_guild_id: group.id, platform_channel_id: defaultChannel.id, platform: platformAPI.name } }) },

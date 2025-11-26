@@ -10,7 +10,7 @@ import { GetReply } from '../index.mjs'
 import { Charbase } from '../../charbase.ts'
 const {charname} = Charbase
 
-/** @type {import("../../../../../../../src/decl/PluginAPI.ts").ReplyHandler_t} */
+// /** @type {import("../../../../../../../src/decl/PluginAPI.ts").ReplyHandler_t} */
 export async function timer(result, args) {
 	const { AddLongTimeLog } = args
 	let processed = false

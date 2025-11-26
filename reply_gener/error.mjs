@@ -1,6 +1,6 @@
 import { reloadPart } from '../../../../../../src/server/managers/index.mjs'
 import { Charbase, GentianAphrodite} from '../charbase.ts'
-const {is_dist, charname: BotCharname, username: FountUsername} = Charbase
+const {is_dist, charname: BotCharname} = Charbase
 
 /**
  * @typedef {import('../../../../../src/public/shells/chat/decl/chatLog.ts').chatReply_t} FountChatReply_t
@@ -19,7 +19,7 @@ const errorRecord = {}
 async function getAISuggestionForError(error, errorMessageForRecord, originalArgs) {
 	try {
 		const botNameForAI = originalArgs.Charname || BotCharname
-		const ownerNameForAI = originalArgs.UserCharname || FountUsername
+		const ownerNameForAI = originalArgs.UserCharname || Charbase.username
 
 		const isInHypnosisForError = !!originalArgs.chat_scoped_char_memory?.in_hypnosis
 
@@ -103,7 +103,7 @@ export async function handleError(error, originalArgs) {
 
 	console.error('[ReplyGener] Original error handled:', error, 'Context:', originalArgs.chat_name)
 
-	await reloadPart(FountUsername, 'chars', BotCharname)
+	await reloadPart(Charbase.username, 'chars', BotCharname)
 
 	return {
 		content: fullReplyContent,
