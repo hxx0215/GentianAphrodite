@@ -1,9 +1,10 @@
 import fs from 'node:fs'
 
-import { chardir } from '../../charbase.mjs'
 import { resolvePath } from '../../scripts/fileobj.mjs'
 import { getScopedChatLog, match_keys } from '../../scripts/match.mjs'
 import { mimetypeFromBufferAndName } from '../../scripts/mimetype.mjs'
+import { Charbase } from '../../charbase.ts'
+const {chardir} = Charbase
 /** @typedef {import("../../../../../../../src/public/shells/chat/decl/chatLog.ts").chatReplyRequest_t} chatReplyRequest_t */
 /** @typedef {import("../logical_results/index.mjs").logical_results_t} logical_results_t */
 

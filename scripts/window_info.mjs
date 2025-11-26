@@ -1,6 +1,6 @@
 import process, { env } from 'node:process'
 
-import { bash_exec, pwsh_exec, where_command } from './exec.mjs'
+import { bash_exec, pwsh_exec, where_command } from './exec.ts'
 
 // --- 内部辅助函数 ---
 

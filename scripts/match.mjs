@@ -4,12 +4,12 @@ import { translate } from 'npm:@vitalets/google-translate-api'
 import { francAll } from 'npm:franc'
 import * as OpenCC from 'npm:opencc-js'
 
-import { charname } from '../charbase.mjs'
-
+import { Charbase } from '../charbase.ts'
 import { remove_kaomoji } from './dict.mjs'
 import { normalizeFancyText } from './fancytext.mjs'
 import { is_PureChinese } from './langdetect.mjs'
 import { escapeRegExp } from './tools.mjs'
+const {charname} = Charbase
 
 const chT2S = OpenCC.Converter({ from: 'twp', to: 'cn' })
 /**

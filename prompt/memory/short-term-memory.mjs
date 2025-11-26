@@ -2,11 +2,12 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { loadJsonFileIfExists, saveJsonFile } from '../../../../../../../src/scripts/json_loader.mjs'
-import { chardir } from '../../charbase.mjs'
 import { createContextSnapshot } from '../../scripts/context.mjs'
 import jieba from '../../scripts/jieba.mjs'
 import { flatChatLog, match_keys, PreprocessChatLogEntry } from '../../scripts/match.mjs'
 import { findMostFrequentElement } from '../../scripts/tools.mjs'
+import { Charbase } from '../../charbase.ts'
+const {chardir} = Charbase
 /** @typedef {import("../../../../../../../src/public/shells/chat/decl/chatLog.ts").chatReplyRequest_t} chatReplyRequest_t */
 /** @typedef {import("../../../../../../../src/public/shells/chat/decl/chatLog.ts").chatLogEntry_t} chatLogEntry_t */
 /** @typedef {import("../../../../../../../src/decl/prompt_struct.ts").single_part_prompt_t} single_part_prompt_t */

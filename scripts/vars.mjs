@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { loadJsonFileIfExists, saveJsonFile } from '../../../../../../src/scripts/json_loader.mjs'
-import { chardir } from '../charbase.mjs'
+import { Charbase } from '../charbase.ts'
 
 const varsMap = {}
 /**
@@ -14,7 +14,7 @@ const varsMap = {}
  * @returns {T} - varsMap 中的变量值或默认值。
  */
 export function getVar(name, vdefault = {}) {
-	return varsMap[name] ??= loadJsonFileIfExists(path.join(chardir, 'vars', `${name}.json`), vdefault)
+	return varsMap[name] ??= loadJsonFileIfExists(path.join(Charbase.chardir, 'vars', `${name}.json`), vdefault)
 }
 /**
  * 保存一个变量到 JSON 文件。

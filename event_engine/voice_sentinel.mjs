@@ -13,11 +13,12 @@ import Meyda from 'npm:meyda'
 import wavefile from 'npm:wavefile'
 import 'npm:@steve02081504/virtual-console'
 
-import { chardir, charname } from '../charbase.mjs'
 import { config as charConfig } from '../config/index.mjs'
 import { GetReply } from '../reply_gener/index.mjs'
 
 import { initRealityChannel, RealityChannel } from './index.mjs'
+import { Charbase } from '../charbase.ts'
+const { chardir, charname } = Charbase
 
 /**
  * @typedef {object} RecordingStats

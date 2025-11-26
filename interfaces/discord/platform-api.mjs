@@ -1,7 +1,7 @@
 import { ChannelType, Events } from 'npm:discord.js'
 
 import { cleanup as cleanupBotLogic } from '../../bot_core/index.mjs'
-import { charname as BotFountCharname } from '../../charbase.mjs'
+import { Charbase } from '../../charbase.ts'
 
 import { get_discord_api_plugin } from './api.mjs'
 import { discordMessageToFountChatLogEntry } from './message-converter.mjs'
@@ -186,7 +186,7 @@ export function buildPlatformAPI(interfaceConfig) {
 		 * 获取机器人自身的 Discord 用户名。
 		 * @returns {string} - 机器人自身的 Discord 用户名。
 		 */
-		getBotUsername: () => client.user?.username || BotFountCharname,
+		getBotUsername: () => client.user?.username || Charbase.charname,
 		/**
 		 * 获取主人的 Discord 用户名。
 		 * @returns {string} - 主人的 Discord 用户名。
@@ -201,7 +201,7 @@ export function buildPlatformAPI(interfaceConfig) {
 		 * 获取机器人自身的 Discord 显示名称 (服务器昵称或全局显示名)。
 		 * @returns {string} - 机器人自身的 Discord 显示名称。
 		 */
-		getBotDisplayName: () => client.user?.displayName || client.user?.globalName || client.user?.username || BotFountCharname,
+		getBotDisplayName: () => client.user?.displayName || client.user?.globalName || client.user?.username || Charbase.charname,
 
 		/**
 		 * 获取供 AI 使用的、易读的聊天/频道名称。

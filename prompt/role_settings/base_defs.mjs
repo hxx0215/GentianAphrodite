@@ -1,7 +1,8 @@
 import { getPartInfo } from '../../../../../../../src/scripts/locale.mjs'
-import { is_dist } from '../../charbase.mjs'
 import { match_keys } from '../../scripts/match.mjs'
 import { random } from '../../scripts/random.mjs'
+import { Charbase } from '../../charbase.ts'
+const { is_dist} = Charbase
 /** @typedef {import("../../../../../../../src/public/shells/chat/decl/chatLog.ts").chatReplyRequest_t} chatReplyRequest_t */
 /** @typedef {import("../../../../../../../src/decl/prompt_struct.ts").single_part_prompt_t} single_part_prompt_t */
 /** @typedef {import("../logical_results/index.mjs").logical_results_t} logical_results_t */

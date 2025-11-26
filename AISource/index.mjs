@@ -2,7 +2,7 @@
 
 import { getPartInfo } from '../../../../../../src/scripts/locale.mjs'
 import { loadAIsource, loadDefaultAIsource } from '../../../../../../src/server/managers/AIsource_manager.mjs'
-import { username } from '../charbase.mjs'
+import { Charbase } from '../charbase.ts'
 import { checkVoiceSentinel } from '../event_engine/voice_sentinel.mjs'
 
 /**
@@ -41,8 +41,8 @@ export function getAISourceData() {
 export async function setAISourceData(data) {
 	const newAIsources = {}
 	for (const name in data) if (data[name])
-		newAIsources[name] = loadAIsource(username, data[name])
-	const fount_default = await loadDefaultAIsource(username)
+		newAIsources[name] = loadAIsource(Charbase.username, data[name])
+	const fount_default = await loadDefaultAIsource(Charbase.username)
 	for (const name in newAIsources) newAIsources[name] = await newAIsources[name]
 	if (fount_default && !Object.values(newAIsources).some(x => x === fount_default))
 		newAIsources.fount_default = fount_default

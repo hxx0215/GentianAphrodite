@@ -4,10 +4,10 @@ import path from 'node:path'
 
 import mimetype from 'npm:mime-types'
 import wavefile from 'npm:wavefile'
-
-import { chardir, charname } from '../charbase.mjs'
+import { Charbase } from '../charbase.ts'
 import { checkVoiceSentinel } from '../event_engine/voice_sentinel.mjs'
 import { unlockAchievement } from '../scripts/achievements.mjs'
+const { chardir, charname } = Charbase
 
 /**
  * 设置配置界面的 API 端点。

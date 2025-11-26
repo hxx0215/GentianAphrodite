@@ -1,6 +1,7 @@
-import { charname as BotCharname } from '../charbase.mjs'
 
 import { userIdToNameMap, nameToUserIdMap } from './state.mjs'
+import { Charbase } from '../charbase.ts'
+const BotCharname = Charbase.charname
 
 /**
  * fount 基础聊天日志条目类型。

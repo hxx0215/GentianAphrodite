@@ -1,9 +1,12 @@
 import { localhostLocales } from '../../../../../../src/scripts/i18n.mjs'
 import { loadDefaultPersona } from '../../../../../../src/server/managers/persona_manager.mjs'
-import { charname as BotCharname, username as FountUsername, GentianAphrodite } from '../charbase.mjs'
 
 import { userIdToNameMap, inHypnosisChannelId } from './state.mjs'
 import { fetchFilesForMessages } from './utils.mjs'
+import { Charbase, GentianAphrodite } from '../charbase.ts'
+const BotCharname = Charbase.charname
+const FountUsername = Charbase.username
+
 
 /**
  * 平台接口 API 对象类型定义。

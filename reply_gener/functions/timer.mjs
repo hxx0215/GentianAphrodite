@@ -2,12 +2,13 @@
 /** @typedef {import("../../../../../../../src/decl/prompt_struct.ts").prompt_struct_t} prompt_struct_t */
 
 import { getTimers, removeTimer, setTimer } from '../../../../../../../src/server/timers.mjs'
-import { charname } from '../../charbase.mjs'
 import { flatChatLog } from '../../scripts/match.mjs'
 import { UseNofityAbleChannel } from '../../scripts/notify.mjs'
 import { newCharReplay, statisticDatas } from '../../scripts/statistics.mjs'
 import { parseDuration } from '../../scripts/tools.mjs'
 import { GetReply } from '../index.mjs'
+import { Charbase } from '../../charbase.ts'
+const {charname} = Charbase
 
 /** @type {import("../../../../../../../src/decl/PluginAPI.ts").ReplyHandler_t} */
 export async function timer(result, args) {

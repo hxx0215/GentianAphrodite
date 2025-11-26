@@ -4,7 +4,7 @@ import util from 'node:util'
 import { async_eval } from 'https://cdn.jsdelivr.net/gh/steve02081504/async-eval/deno.mjs'
 
 import { unlockAchievement } from '../../scripts/achievements.mjs'
-import { available, shell_exec_map } from '../../scripts/exec.mjs'
+import { available, shell_exec_map } from '../../scripts/exec.ts'
 import { toFileObj } from '../../scripts/fileobj.mjs'
 import { newCharReplay, statisticDatas } from '../../scripts/statistics.mjs'
 import { captureScreen } from '../../scripts/tools.mjs'

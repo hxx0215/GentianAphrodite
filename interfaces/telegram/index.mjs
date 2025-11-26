@@ -1,10 +1,11 @@
 import { registerPlatformAPI } from '../../bot_core/index.mjs'
-import { charname as BotFountCharname } from '../../charbase.mjs'
 import { tryFewTimes } from '../../scripts/tryFewTimes.mjs'
 
 import { registerEventHandlers } from './event-handlers.mjs'
 import { buildPlatformAPI } from './platform-api.mjs'
 import { setTelegrafInstance, setTelegramBotInfo, telegramBotInfo, telegramUserIdToDisplayName, telegramDisplayNameToId } from './state.mjs'
+import { Charbase } from '../../charbase.ts'
+const {charname : BotFountCharname} = Charbase
 
 /**
  * @typedef {import('./config.mjs').GetBotConfigTemplate} GetBotConfigTemplate

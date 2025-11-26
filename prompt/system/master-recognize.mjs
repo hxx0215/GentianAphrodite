@@ -4,8 +4,9 @@
 
 import fs from 'node:fs'
 
-import { chardir } from '../../charbase.mjs'
+import { Charbase } from '../../charbase.ts'
 import { match_keys } from '../../scripts/match.mjs'
+const { chardir } = Charbase
 
 /**
  * @param {chatReplyRequest_t} args 用户输入参数

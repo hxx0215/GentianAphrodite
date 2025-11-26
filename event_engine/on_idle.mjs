@@ -1,11 +1,12 @@
 /** @typedef {import("../../../../../../src/public/shells/chat/decl/chatLog.ts").chatLogEntry_t} chatLogEntry_t */
 
-import { charname } from '../charbase.mjs'
+import { Charbase } from '../charbase.ts'
 import { config } from '../config/index.mjs'
 import { formatLongTermMemory, getRandomNLongTermMemories } from '../prompt/memory/long-term-memory.mjs'
 import { GetReply } from '../reply_gener/index.mjs'
 
 import { initRealityChannel, RealityChannel } from './index.mjs'
+const {charname} = Charbase
 
 /**
  * 定义闲置时可以执行的随机任务列表。
@@ -28,7 +29,7 @@ const idleTasks = [
 		 * 获取任务内容的函数。
 		 * @returns {string} 返回任务内容的字符串。
 		 */
-		get_content: () => '随意浏览主人的硬盘、屏幕、摄像头等，更新和总结有关主人的信息。',
+		get_content: () => '随意浏览主人的硬盘，更新和总结有关主人的信息。',
 		enable_prompts: {
 			time: true,
 			longTermMemory: true,
@@ -72,26 +73,26 @@ ${getRandomNLongTermMemories(5).map(formatLongTermMemory).join('\n')}
 	 * @property {object} enable_prompts - 激活的 AI 提示。
 	 * @property {number} weight - 任务权重。
 	 */
-	{
-		/**
-		 * 获取任务内容的函数。
-		 * @returns {string} 返回任务内容的字符串。
-		 */
-		get_content: () => `\
-观察主人现在是否在电脑前，分析其是否需要帮助或任何友善的提醒。
-如果主人在做不应被通知打扰的事如fps游戏，则最好不要弹窗。
-`,
-		enable_prompts: {
-			time: true,
-			longTermMemory: true,
-			browserIntegration: { history: true },
-			CodeRunner: true,
-			camera: true,
-			screenshot: true,
-			fileChange: true
-		},
-		weight: 20 // 主动关怀，较高权重
-	},
+// 	{
+// 		/**
+// 		 * 获取任务内容的函数。
+// 		 * @returns {string} 返回任务内容的字符串。
+// 		 */
+// 		get_content: () => `\
+// 观察主人现在是否在电脑前，分析其是否需要帮助或任何友善的提醒。
+// 如果主人在做不应被通知打扰的事如fps游戏，则最好不要弹窗。
+// `,
+// 		enable_prompts: {
+// 			time: true,
+// 			longTermMemory: true,
+// 			browserIntegration: { history: true },
+// 			CodeRunner: true,
+// 			camera: true,
+// 			screenshot: true,
+// 			fileChange: true
+// 		},
+// 		weight: 20 // 主动关怀，较高权重
+// 	},
 	/**
 	 * 闲置任务：确认自己和主人的关系和定位，做一些关于自己的规划。
 	 * @property {Function} get_content - 获取任务内容的函数。

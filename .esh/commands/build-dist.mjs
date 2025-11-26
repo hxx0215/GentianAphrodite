@@ -5,7 +5,7 @@ import { rollup } from 'npm:rollup'
 import obfuscator from 'npm:rollup-plugin-obfuscator'
 import { visualizer } from 'npm:rollup-plugin-visualizer'
 
-import { exec } from '../../scripts/exec.mjs'
+import { exec } from '../../scripts/exec.ts'
 import { nicerWriteFileSync } from '../../scripts/tools.mjs'
 
 // 创建dist目录

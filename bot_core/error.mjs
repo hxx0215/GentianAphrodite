@@ -1,7 +1,7 @@
 import { localhostLocales } from '../../../../../../src/scripts/i18n.mjs'
 import { reloadPart } from '../../../../../../src/server/managers/index.mjs'
 import { loadDefaultPersona } from '../../../../../../src/server/managers/persona_manager.mjs'
-import { is_dist, charname as BotCharname, username as FountUsername, GentianAphrodite } from '../charbase.mjs'
+import { Charbase, GentianAphrodite } from '../charbase.ts'
 
 import { sendAndLogReply } from './reply.mjs'
 import { errorRecord, userIdToNameMap, inHypnosisChannelId } from './state.mjs'
@@ -38,12 +38,12 @@ import { errorRecord, userIdToNameMap, inHypnosisChannelId } from './state.mjs'
 async function getAISuggestionForError(error, errorMessageForRecord, platformAPI, contextMessage) {
 	try {
 		const botPlatformId = platformAPI.getBotUserId()
-		const fountBotDisplayName = (await GentianAphrodite.getPartInfo?.(localhostLocales[0]))?.name || BotCharname
+		const fountBotDisplayName = (await GentianAphrodite.getPartInfo?.(localhostLocales[0]))?.name || Charbase.charname
 		const botNameForAI = userIdToNameMap[botPlatformId] || `${platformAPI.getBotUsername()} (咱自己)` || `${fountBotDisplayName} (咱自己)`
 
 		const ownerPlatformUsername = platformAPI.getOwnerUserName()
 		const ownerPlatformId = platformAPI.getOwnerUserId()
-		const ownerNameForAI = userIdToNameMap[ownerPlatformId] || ownerPlatformUsername || FountUsername
+		const ownerNameForAI = userIdToNameMap[ownerPlatformId] || ownerPlatformUsername || Charbase.username
 
 		const currentChannelId = contextMessage?.extension?.platform_channel_id
 		const isInHypnosisForError = !!(currentChannelId && currentChannelId === inHypnosisChannelId)
@@ -57,7 +57,7 @@ async function getAISuggestionForError(error, errorMessageForRecord, platformAPI
 				extension: {}
 			}, {
 				name: ownerNameForAI,
-				content: errorMessageForRecord + (is_dist ? `\
+				content: errorMessageForRecord + (Charbase.is_dist ? `\
 婉瑜，解释下这个错误是什么？可能该如何修复？
 同时给我你的创作者的相关信息，方便我反馈。
 `: `\
@@ -81,22 +81,22 @@ async function getAISuggestionForError(error, errorMessageForRecord, platformAPI
 		]
 
 		const chatNameForSelfRepair = platformAPI.getChatNameForAI(
-			currentChannelId || (is_dist ? 'error-report-context' : 'self-repair-context'),
+			currentChannelId || (Charbase.is_dist ? 'error-report-context' : 'self-repair-context'),
 			contextMessage
 		)
 
 		/** @type {FountChatReplyRequest_t} */
 		const selfRepairRequest = {
 			supported_functions: { markdown: true, mathjax: true, html: false, unsafe_html: false, files: true, add_message: false },
-			username: FountUsername,
+			username: Charbase.username,
 			chat_name: chatNameForSelfRepair,
-			char_id: BotCharname,
+			char_id: Charbase.charname,
 			Charname: botNameForAI,
 			UserCharname: ownerNameForAI,
 			locales: localhostLocales,
 			time: new Date(),
 			world: platformAPI.getPlatformWorld(),
-			user: loadDefaultPersona(FountUsername),
+			user: loadDefaultPersona(Charbase.username),
 			char: GentianAphrodite,
 			other_chars: [],
 			plugins: {},
@@ -163,5 +163,5 @@ export async function handleError(error, platformAPI, contextMessage) {
 
 	platformAPI.logError(error, contextMessage)
 	console.error('[BotLogic] Original error handled:', error, 'Context:', contextMessage)
-	await reloadPart(FountUsername, 'chars', BotCharname)
+	await reloadPart(Charbase.username, 'chars', Charbase.charname)
 }

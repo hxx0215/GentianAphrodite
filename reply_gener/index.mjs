@@ -4,7 +4,7 @@ import { compareTwoStrings as string_similarity } from 'npm:string-similarity'
 
 import { buildPromptStruct } from '../../../../../../src/public/shells/chat/src/prompt_struct.mjs'
 import { noAISourceAvailable, OrderedAISourceCalling } from '../AISource/index.mjs'
-import { is_dist } from '../charbase.mjs'
+import { Charbase } from '../charbase.ts'
 import { plugins } from '../config/index.mjs'
 import { get_discord_api_plugin } from '../interfaces/discord/api.mjs'
 import { get_telegram_api_plugin } from '../interfaces/telegram/api.mjs'
@@ -26,6 +26,8 @@ import { ShortTermMemoryHandler } from './functions/short-term-memory.mjs'
 import { timer } from './functions/timer.mjs'
 import { webbrowse } from './functions/webbrowse.mjs'
 import { noAIreply } from './noAI/index.mjs'
+const { is_dist } = Charbase
+
 
 /** @typedef {import("../../../../../../src/public/shells/chat/decl/chatLog.ts").chatLogEntry_t} chatLogEntry_t */
 /** @typedef {import("../../../../../../src/public/shells/chat/decl/chatLog.ts").chatReplyRequest_t} chatReplyRequest_t */
@@ -137,6 +139,9 @@ export async function GetReply(args) {
 				logical_results.in_nsfw ? 'nsfw' : logical_results.in_assist ? 'expert' : 'sfw'
 				: 'from-other')
 			const requestresult = await OrderedAISourceCalling(AItype, async AI => {
+				if (AItype === 'idle'){
+					prompt_struct.debug = true
+				}
 				const result = await AI.StructCall(prompt_struct)
 				if (!String(result.content).trim()) throw new Error('empty reply')
 				return result

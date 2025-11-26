@@ -1,11 +1,12 @@
 import { localhostLocales } from '../../../../../../../src/scripts/i18n.mjs'
 import { loadDefaultPersona } from '../../../../../../../src/server/managers/persona_manager.mjs'
-import { username, GentianAphrodite } from '../../charbase.mjs'
 import { GetReply } from '../../reply_gener/index.mjs'
 import { newCharReplay, newUserMessage } from '../../scripts/statistics.mjs'
 
 import { recommend_command_plugin } from './recommend_command.mjs'
 import { GetShellWorld } from './world.mjs'
+import { Charbase, GentianAphrodite } from '../../charbase.ts'
+const {username} = Charbase
 /** @typedef {import('../../../../../../../src/public/shells/chat/decl/chatLog.ts').chatLogEntry_t} chatLogEntry_t */
 
 /**

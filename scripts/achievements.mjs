@@ -3,7 +3,8 @@
  * 该模块提供了用于解锁角色成就的功能。
  */
 import { unlockAchievement as base } from '../../../../../../src/public/shells/achievements/src/api.mjs'
-import { charname, username } from '../charbase.mjs'
+import { Charbase } from '../charbase.ts'
+const {charname, username} = Charbase
 
 /**
  * 为当前角色解锁一项成就。
@@ -11,5 +12,5 @@ import { charname, username } from '../charbase.mjs'
  * @returns {Promise<void>}
  */
 export async function unlockAchievement(id) {
-	return base(username, 'chars', charname, id)
+	return await base(username, 'chars', charname, id)
 }

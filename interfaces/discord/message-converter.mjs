@@ -2,7 +2,7 @@ import { Buffer } from 'node:buffer'
 
 import { ChannelType } from 'npm:discord.js'
 
-import { charname as BotFountCharname } from '../../charbase.mjs'
+import { Charbase } from '../../charbase.ts'
 import { mimetypeFromBufferAndName } from '../../scripts/mimetype.mjs'
 import { tryFewTimes } from '../../scripts/tryFewTimes.mjs'
 
@@ -44,9 +44,9 @@ export async function discordMessageToFountChatLogEntry(message, interfaceConfig
 	discordUserIdToDisplayName[author.id] = senderName
 
 	if (author.id === discordClientInstance.user?.id) {
-		const botDisplayName = discordClientInstance.user.displayName || discordClientInstance.user.globalName || BotFountCharname
+		const botDisplayName = discordClientInstance.user.displayName || discordClientInstance.user.globalName || Charbase.charname
 		discordDisplayNameToId[botDisplayName] = author.id
-		discordDisplayNameToId[BotFountCharname] = author.id
+		discordDisplayNameToId[Charbase.charname] = author.id
 		discordUserIdToDisplayName[author.id] = `${botDisplayName} (咱自己)`
 		senderName = discordUserIdToDisplayName[author.id]
 	}
@@ -188,7 +188,7 @@ export async function discordMessageToFountChatLogEntry(message, interfaceConfig
 	const isDirectMessage = message.channel.type === ChannelType.DM
 	const isFromOwner = message.author.username === interfaceConfig.OwnerUserName
 	const mentionsBot = message.mentions.users.has(discordClientInstance.user?.id || '') ||
-		(BotFountCharname && content.toLowerCase().includes(BotFountCharname.toLowerCase()))
+		(Charbase.charname && content.toLowerCase().includes(Charbase.charname.toLowerCase()))
 
 	const mentionsOwner = message.mentions.users.some(user => user.username === interfaceConfig.OwnerUserName)
 

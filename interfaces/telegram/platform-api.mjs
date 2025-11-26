@@ -1,5 +1,4 @@
 import { cleanup as cleanupBotLogic } from '../../bot_core/index.mjs'
-import { charname as BotFountCharname } from '../../charbase.mjs'
 import { escapeHTML } from '../../scripts/tools.mjs'
 import { tryFewTimes } from '../../scripts/tryFewTimes.mjs'
 
@@ -8,6 +7,8 @@ import { telegramMessageToFountChatLogEntry } from './message-converter.mjs'
 import { telegrafInstance, telegramBotInfo, telegramUserIdToDisplayName, aiReplyObjectCache } from './state.mjs'
 import { splitTelegramReply, aiMarkdownToTelegramHtml, parseLogicalChannelId } from './utils.mjs'
 import { telegramWorld } from './world.mjs'
+import { Charbase } from '../../charbase.ts'
+const { charname : BotFountCharname} = Charbase
 
 /**
  * @typedef {import('./config.mjs').TelegramInterfaceConfig_t} TelegramInterfaceConfig_t

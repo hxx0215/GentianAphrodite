@@ -1,10 +1,12 @@
 import { localhostLocales } from '../../../../../../src/scripts/i18n.mjs'
 import { loadDefaultPersona } from '../../../../../../src/server/managers/persona_manager.mjs'
-import { charname as BotCharname, username as FountUsername, GentianAphrodite } from '../charbase.mjs'
 
 import { handleError } from './error.mjs'
 import { channelChatLogs, channelLastSendMessageTime, channelCharScopedMemory, userIdToNameMap, bannedStrings, fuyanMode, setInHypnosisChannelId } from './state.mjs'
 import { fetchFilesForMessages, updateBotNameMapping } from './utils.mjs'
+import { Charbase, GentianAphrodite } from '../charbase.ts'
+const BotCharname = Charbase.charname
+const FountUsername = Charbase.username
 
 /**
  * fount 聊天回复对象类型。

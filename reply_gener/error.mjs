@@ -1,5 +1,6 @@
 import { reloadPart } from '../../../../../../src/server/managers/index.mjs'
-import { is_dist, charname as BotCharname, username as FountUsername, GentianAphrodite } from '../charbase.mjs'
+import { Charbase, GentianAphrodite} from '../charbase.ts'
+const {is_dist, charname: BotCharname, username: FountUsername} = Charbase
 
 /**
  * @typedef {import('../../../../../src/public/shells/chat/decl/chatLog.ts').chatReply_t} FountChatReply_t

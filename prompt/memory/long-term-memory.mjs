@@ -4,8 +4,9 @@ import path from 'node:path'
 import { async_eval } from 'https://cdn.jsdelivr.net/gh/steve02081504/async-eval/deno.mjs'
 
 import { loadJsonFileIfExists, saveJsonFile } from '../../../../../../../src/scripts/json_loader.mjs'
-import { chardir } from '../../charbase.mjs'
 import { match_keys, match_keys_all } from '../../scripts/match.mjs'
+import { Charbase } from '../../charbase.ts'
+const {chardir} = Charbase
 /** @typedef {import("../../../../../../../src/public/shells/chat/decl/chatLog.ts").chatReplyRequest_t} chatReplyRequest_t */
 /** @typedef {import("../../../../../../../src/decl/prompt_struct.ts").single_part_prompt_t} single_part_prompt_t */
 /** @typedef {import("../logical_results/index.mjs").logical_results_t} logical_results_t */
