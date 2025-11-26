@@ -72,7 +72,7 @@
 - **`from_timer` (boolean)**: (来自 `nullreplay.mjs`) 请求是否由计时器发起。
 - **`execed_codes` (object)**: (来自 `coderunner.mjs`) 代码执行结果。
 - **`logical_results` (object)**: (来自 `deep-research.mjs`) 深度研究的结构化数据。
-- **`enable_prompts` (object)**: (来自 `event_engine/on_idle.mjs` 等) 用于强制激活`prompt/functions/`下的特定功能，绕过常规触发条件。键为功能名，值为`true`。
+- **`enable_prompts` (object)**: (来自 `event_engine/on_idle.ts` 等) 用于强制激活`prompt/functions/`下的特定功能，绕过常规触发条件。键为功能名，值为`true`。
 
   ```javascript
   // 示例: 强制激活计算和时间功能

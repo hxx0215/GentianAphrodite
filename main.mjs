@@ -4,7 +4,7 @@ import { loadJsonFile } from '../../../../../src/scripts/json_loader.mjs'
 import { initCharBase, Charbase, GentianAphrodite } from './charbase.ts'
 import { GetData, SetData, GetConfigDisplayContent } from './config/index.mjs'
 import { setConfigEndpoints } from './config/router.mjs'
-import { initializeOnIdleHandler, stopIdleTimer } from './event_engine/on_idle.mjs'
+import { initializeOnIdleHandler, stopIdleTimer } from './event_engine/on_idle.ts'
 import { initializeVoiceSentinel, stopVoiceSentinel } from './event_engine/voice_sentinel.mjs'
 import { GetGreeting, GetGroupGreeting } from './greetings/index.mjs'
 import { UpdateInfo } from './info/index.mjs'
@@ -14,7 +14,6 @@ import { BrowserJsCallback } from './reply_gener/functions/browserIntegration.mj
 import { timerCallBack } from './reply_gener/functions/timer.mjs'
 import { GetReply } from './reply_gener/index.mjs'
 import { unlockAchievement } from './scripts/achievements.mjs'
-import { startClipboardListening, stopClipboardListening } from './scripts/clipboard.mjs'
 import { saveVars } from './scripts/vars.mjs'
 
 Object.assign(GentianAphrodite, {
@@ -29,7 +28,6 @@ Object.assign(GentianAphrodite, {
 		addPartLocaleData(Charbase.username, 'chars', 'GentianAphrodite', ['zh-CN', 'en-US'], locale => loadJsonFile(Charbase.chardir + `/locales/${locale}.json`))
 		initializeOnIdleHandler()
 		initializeVoiceSentinel()
-		startClipboardListening()
 		setConfigEndpoints(stat.router)
 		unlockAchievement('installed')
 	},

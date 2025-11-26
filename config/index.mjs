@@ -3,7 +3,7 @@ import path from 'node:path'
 
 import { loadPlugin } from '../../../../../../src/server/managers/plugin_manager.mjs'
 import { getAISourceData, setAISourceData } from '../AISource/index.mjs'
-import { resetIdleTimer } from '../event_engine/on_idle.mjs'
+import { resetIdleTimer } from '../event_engine/on_idle.ts'
 import { checkVoiceSentinel, stopVoiceSentinel } from '../event_engine/voice_sentinel.mjs'
 import { mergeTree } from '../scripts/tools.mjs'
 import { Charbase } from '../charbase.ts'

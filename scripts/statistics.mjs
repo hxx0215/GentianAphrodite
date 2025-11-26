@@ -1,6 +1,6 @@
 import Tokenizer from 'npm:mistral-tokenizer-js'
 
-import { resetIdleTimer } from '../event_engine/on_idle.mjs'
+import { resetIdleTimer } from '../event_engine/on_idle.ts'
 
 import { parseDuration } from './tools.mjs'
 import { getVar, saveVar } from './vars.mjs'
