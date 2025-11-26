@@ -1,3 +1,5 @@
+import { Buffer } from 'node:buffer'
+import fs from 'node:fs'
 import { inspect } from 'node:util'
 
 import { compareTwoStrings as string_similarity } from 'npm:string-similarity'
@@ -159,6 +161,17 @@ export async function GetReply(args) {
 					charVisibility: [args.char_id]
 				})
 				return null
+			}
+			const sticker = result.content.match(/<gentian_sticker>(.*?)<\/gentian_sticker>/)?.[1]
+			result.content = result.content.replace(/<gentian_sticker>(.*?)<\/gentian_sticker>/, '')
+			if (sticker) try {
+				result.files.push({
+					name: sticker + '.avif',
+					buffer: Buffer.from(fs.readFileSync(chardir + '/public/imgs/stickers/' + sticker + '.avif'), 'base64'),
+					mime_type: 'image/avif'
+				})
+			} catch {
+				console.error(`Sticker ${sticker} not found`)
 			}
 			result.content = result.content.replace(/\s*<-<null>->\s*$/, '')
 			result.content = result.content.replace(/^(?:啊啦|唔姆|\.{3}|(?!主人).){0,5}主人(?:大人)?(?:\.{3}|…|💖|✨|🥰|🎶|🥺|，|！|。)+/, '') // 啊啊啊啊我受不了了
