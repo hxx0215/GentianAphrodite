@@ -1,5 +1,5 @@
 import { update as enUS } from './en-US.mjs'
-import { update as zhCN } from './zh-CN.mjs'
+import { update as zhCN } from './zh-CN.ts'
 
 /**
  * 更新并返回所有支持语言的信息。
