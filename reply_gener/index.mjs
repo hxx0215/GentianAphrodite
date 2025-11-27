@@ -167,10 +167,10 @@ export async function GetReply(args) {
 			if (sticker) try {
 				result.files.push({
 					name: sticker + '.avif',
-					buffer: Buffer.from(fs.readFileSync(chardir + '/public/imgs/stickers/' + sticker + '.avif'), 'base64'),
+					buffer: Buffer.from(fs.readFileSync(Charbase.chardir + '/public/imgs/stickers/' + sticker + '.avif'), 'base64'),
 					mime_type: 'image/avif'
 				})
-			} catch {
+			} catch(e) {
 				console.error(`Sticker ${sticker} not found`)
 			}
 			result.content = result.content.replace(/\s*<-<null>->\s*$/, '')
