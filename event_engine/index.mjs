@@ -1,6 +1,6 @@
 import { localhostLocales } from '../../../../../../src/scripts/i18n.mjs'
 import { notify } from '../../../../../../src/scripts/notify.mjs'
-import { config } from '../config/index.mjs'
+import { config } from '../config/index.ts'
 import { discordPlatformAPI } from '../interfaces/discord/index.mjs'
 import { telegramPlatformAPI } from '../interfaces/telegram/index.mjs'
 import { Charbase, GentianAphrodite } from '../charbase.ts'

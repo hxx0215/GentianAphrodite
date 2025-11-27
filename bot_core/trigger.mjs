@@ -1,6 +1,6 @@
 import { Buffer } from 'node:buffer'
 
-import { setMyData } from '../config/index.mjs'
+import { setMyData } from '../config/index.ts'
 import { rude_words } from '../scripts/dict.mjs'
 import { base_match_keys, base_match_keys_count, SimplifyChinese } from '../scripts/match.mjs'
 import { newCharReplay, newUserMessage } from '../scripts/statistics.mjs'

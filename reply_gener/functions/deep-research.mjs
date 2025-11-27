@@ -2,7 +2,7 @@
 /** @typedef {import("../../../../../../../src/decl/prompt_struct.ts").prompt_struct_t} prompt_struct_t */
 
 import { OrderedAISourceCalling } from '../../AISource/index.mjs'
-import { config } from '../../config/index.mjs'
+import { config } from '../../config/index.ts'
 import { mergePrompt } from '../../prompt/build.mjs'
 import { CodeRunnerPrompt } from '../../prompt/functions/coderunner.mjs'
 import { DeepResearchMainPrompt } from '../../prompt/functions/deep-research.mjs'

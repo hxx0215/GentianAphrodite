@@ -1,6 +1,6 @@
 
 import { Charbase } from '../charbase.ts'
-import { config } from '../config/index.mjs'
+import { config } from '../config/index.ts'
 import { formatLongTermMemory, getRandomNLongTermMemories } from '../prompt/memory/long-term-memory.mjs'
 import { GetReply } from '../reply_gener/index.mjs'
 

@@ -13,7 +13,7 @@ import Meyda from 'npm:meyda'
 import wavefile from 'npm:wavefile'
 import 'npm:@steve02081504/virtual-console'
 
-import { config as charConfig } from '../config/index.mjs'
+import { config as charConfig } from '../config/index.ts'
 import { GetReply } from '../reply_gener/index.mjs'
 
 import { initRealityChannel, RealityChannel } from './index.mjs'
