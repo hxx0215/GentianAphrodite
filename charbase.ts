@@ -5,7 +5,7 @@ import type {Client} from 'npm:discord.js'
 import type {Telegraf} from 'npm:telegraf'
 import type { Prompt, Stat } from "./types/basic.ts";
 
-const chardir = import.meta.dirname
+const chardir = import.meta.dirname ?? Deno.cwd()
 const charname = chardir ? path.basename(chardir) : 'wanyu'
 const charurl = `/chars/${encodeURIComponent(charname)}`
 const charvar = await exec('git -C "." describe --tags', { cwd: chardir }).then(result => result.stdout.trim()).catch(

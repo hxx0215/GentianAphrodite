@@ -4,7 +4,7 @@ import { loadJsonFile } from '../../../../../src/scripts/json_loader.mjs'
 
 import { initCharBase, Charbase, GentianAphrodite } from './charbase.ts'
 import { GetData, SetData, GetConfigDisplayContent } from './config/index.mjs'
-import { setConfigEndpoints } from './config/router.mjs'
+import { setConfigEndpoints } from './config/router.ts'
 import { initializeOnIdleHandler, stopIdleTimer } from './event_engine/on_idle.ts'
 // import { initializeVoiceSentinel, stopVoiceSentinel } from './event_engine/voice_sentinel.mjs'
 import { GetGreeting, GetGroupGreeting } from './greetings/index.mjs'
