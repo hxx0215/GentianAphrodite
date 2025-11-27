@@ -163,9 +163,13 @@ export function resetIdleTimer() {
 	stopIdleTimer()
 	if ((config as any).disable_idle_event) return
 	IdleInfo.idleID = setInterval(onIdleCallback, IDLE_INTERVAL_MS)
+	console.log('--------interval--------')
+	console.log('start interval:',IdleInfo.idleID)
+	console.log('--------interval--------')
 }
 export function stopIdleTimer() {
 	if (!IdleInfo.idleID) return
+	console.log('stop interval:', IdleInfo.idleID)
 	clearInterval(IdleInfo.idleID)
 	IdleInfo.idleID = null
 }

@@ -3,6 +3,8 @@ import {exec} from './scripts/exec.ts'
 import type { UpdateInfoType } from "./info/index.ts";
 import type {Client} from 'npm:discord.js'
 import type {Telegraf} from 'npm:telegraf'
+import type { Prompt, Stat } from "./types/basic.ts";
+
 const chardir = import.meta.dirname
 const charname = chardir ? path.basename(chardir) : 'wanyu'
 const charurl = `/chars/${encodeURIComponent(charname)}`
@@ -19,15 +21,9 @@ export const Charbase = {
   charvar,
   username:'',
 }
-type Prompts= {
-  text:{
-    content: string;
-    important: number
-  }[]
-}
 type GentianAphroditeDefinition = {
   info?: UpdateInfoType;
-  Load?: (stat: any) => void;
+  Load?: (stat: Stat) => void;
   Unload?: (reason: any) => Promise<void>;
   interfaces?: {
     info: {
@@ -41,8 +37,8 @@ type GentianAphroditeDefinition = {
     chat:{
       GetGreeting:(args: object, index: number) => Promise<string>;
       GetGroupGreeting: (args: object, index: number) => Promise<string>;
-      GetPrompt:(args: any) => Promise<Prompts>;
-      GetPromptForOther: (args: any) => Promise<Prompts>;
+      GetPrompt:(args: any) => Promise<Prompt>;
+      GetPromptForOther: (args: any) => Prompt;
       GetReply:(args: any) => Promise<any>;
     };
     discord:{
@@ -65,6 +61,6 @@ type GentianAphroditeDefinition = {
   }
 };
 export const GentianAphrodite: GentianAphroditeDefinition = {}
-export function initCharBase(init: {username: string}) {
+export function initCharBase(init: Stat) {
   Charbase.username = init.username
 }

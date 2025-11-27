@@ -1,3 +1,4 @@
+
 import { addPartLocaleData } from '../../../../../src/scripts/i18n.mjs'
 import { loadJsonFile } from '../../../../../src/scripts/json_loader.mjs'
 
@@ -8,16 +9,16 @@ import { initializeOnIdleHandler, stopIdleTimer } from './event_engine/on_idle.t
 // import { initializeVoiceSentinel, stopVoiceSentinel } from './event_engine/voice_sentinel.mjs'
 import { GetGreeting, GetGroupGreeting } from './greetings/index.mjs'
 import { UpdateInfo } from './info/index.ts'
-import { GetPrompt, GetPromptForOther } from './prompt/index.mjs'
+import { GetPrompt, GetPromptForOther } from './prompt/index.ts'
 import { saveMemories } from './prompt/memory/index.mjs'
 import { BrowserJsCallback } from './reply_gener/functions/browserIntegration.mjs'
 import { timerCallBack } from './reply_gener/functions/timer.mjs'
 import { GetReply } from './reply_gener/index.mjs'
 import { unlockAchievement } from './scripts/achievements.mjs'
 import { saveVars } from './scripts/vars.mjs'
-
+import type { Stat } from './types/basic.ts'
 GentianAphrodite.info = await UpdateInfo()
-GentianAphrodite.Load = stat => {
+GentianAphrodite.Load = (stat: Stat) => {
   initCharBase(stat)
   addPartLocaleData(Charbase.username, 'chars', 'GentianAphrodite', ['zh-CN', 'en-US'], (locale: any) => loadJsonFile(Charbase.chardir + `/locales/${locale}.json`))
   initializeOnIdleHandler()
@@ -77,8 +78,4 @@ GentianAphrodite.interfaces = {
 
 }
 
-// /**
-//  * 默认导出的 GentianAphrodite 对象。
-//  * @returns {object} - GentianAphrodite 对象。
-//  */
 export default GentianAphrodite
