@@ -17,8 +17,7 @@ export async function GetConfigDisplayContent(): Promise<{html: string, js: stri
 	}
 }
 
-/** @type {Record<string, import("../../../../../../src/decl/pluginAPI.ts").pluginAPI_t>} */
-export let plugins = {}
+export const plugins: Record<string, any> = {}
 type AIsourcesType = {
   "deep-research": string;
   "web-browse": string;
@@ -78,7 +77,10 @@ export function GetData(): Config {
  */
 export async function SetData(data: Config) {
 	await setAISourceData(data.AIsources || (getAISourceData() as AIsourcesType))
-	if (data.plugins) plugins = Object.fromEntries(await Promise.all(data.plugins.map(async x => [x, await loadPlugin(Charbase.username, x)])))
+	if (data.plugins) {
+		Object.keys(plugins).forEach(key => delete plugins[key])
+		Object.assign(plugins, Object.fromEntries(await Promise.all(data.plugins.map(async x => [x, await loadPlugin(Charbase.username, x)]))))
+	}
 	Object.assign(config.deep_research, data.deep_research)
 
 	config.disable_idle_event = data.disable_idle_event
@@ -93,11 +95,11 @@ export async function SetData(data: Config) {
 }
 
 /**
- * 设置当前角色的配置数据。
+ * 写回当前角色的配置数据。
  * @param {object} data - 包含要设置的数据的对象。
  * @returns {Promise<any>} - `setPartData` 函数的返回值。
  */
-export async function setMyData(data) {
+export async function setMyData(data: Omit<Config,'reality_channel_notification_fallback_order'>) {
 	const { setPartData } = await import('../../../../../../src/public/shells/config/src/manager.mjs')
 	return setPartData(Charbase.username, 'chars', charname, deepmerge(GetData(), data))
 	// return setPartData(Charbase.username, 'chars', charname, mergeTree(await GetData(), data))
