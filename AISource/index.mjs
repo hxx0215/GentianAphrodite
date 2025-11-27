@@ -21,10 +21,6 @@ export let AIsources = {
 }
 const default_AIsourceTypes = Object.keys(AIsources)
 
-/**
- * 获取当前所有AI来源的配置数据。
- * @returns {Record<string, string>} 一个包含AI来源名称及其文件名的对象。
- */
 export function getAISourceData() {
 	const result = {}
 	for (const name in AIsources)
