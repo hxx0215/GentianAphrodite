@@ -56,7 +56,6 @@ function parsePlan(text) {
 
 /**
  * 处理来自 AI 的深度研究请求。
- * @type {import("../../../../../../../src/decl/PluginAPI.ts").ReplyHandler_t}
  */
 export async function deepResearch(result, args) {
 	const { max_planning_cycles, thinking_interval, initial_plan_max_retries, summary_max_retries } = config.deep_research

@@ -1,9 +1,7 @@
 import path from "node:path"
 import {exec} from './scripts/exec.ts'
-import type { UpdateInfoType } from "./info/index.ts";
-import type {Client} from 'npm:discord.js'
-import type {Telegraf} from 'npm:telegraf'
-import type { Prompt, Stat } from "./types/basic.ts";
+import type { Character } from "./types/basic.ts";
+import type { Stat } from "./types/basic.ts";
 
 const chardir = import.meta.dirname ?? Deno.cwd()
 const charname = chardir ? path.basename(chardir) : 'wanyu'
@@ -21,46 +19,7 @@ export const Charbase = {
   charvar,
   username:'',
 }
-type GentianAphroditeDefinition = {
-  info?: UpdateInfoType;
-  Load?: (stat: Stat) => void;
-  Unload?: (reason: any) => Promise<void>;
-  interfaces?: {
-    info: {
-      UpdateInfo: () => Promise<UpdateInfoType>
-    };
-    config:{
-			GetConfigDisplayContent: () => Promise<{html: string; js: string;}>;
-			GetData: () => any,
-			SetData: (data: any) => Promise<void>,
-    };
-    chat:{
-      GetGreeting:(args: object, index: number) => Promise<string>;
-      GetGroupGreeting: (args: object, index: number) => Promise<string>;
-      GetPrompt:(args: any) => Promise<Prompt>;
-      GetPromptForOther: (args: any) => Prompt;
-      GetReply:(args: any) => Promise<any>;
-    };
-    discord:{
-      OnceClientReady:(client: Client, config: any) => Promise<any>;
-      GetBotConfigTemplate: () => Promise<any>;
-    };
-    telegram:{
-      BotSetup: (bot: Telegraf, config: any) => Promise<any>;
-      GetBotConfigTemplate: ()=>Promise<any>
-    };
-    shellassist:{
-      Assist: (args: any) => Promise<any>
-    },
-    browserIntegration:{
-      BrowserJsCallback:(args:{data: any;pageId: number;script: string}) => void
-    },
-    timers:{
-      TimerCallback: (username:string, uid: string, callbackdata:any) => void
-    }
-  }
-};
-export const GentianAphrodite: GentianAphroditeDefinition = {}
+export const GentianAphrodite: Character = {}
 export function initCharBase(init: Stat) {
   Charbase.username = init.username
 }

@@ -16,7 +16,7 @@ import 'npm:@steve02081504/virtual-console'
 import { config as charConfig } from '../config/index.ts'
 import { GetReply } from '../reply_gener/index.mjs'
 
-import { initRealityChannel, RealityChannel } from './index.mjs'
+import { initRealityChannel, RealityChannel } from './index.ts'
 import { Charbase } from '../charbase.ts'
 const { chardir, charname } = Charbase
 
