@@ -109,3 +109,30 @@ export type Plugin = GeneralComponent & {
   }
 
 }
+
+export type Channel = {
+  supported_functions: {
+    markdown: boolean;
+    mathjax: boolean;
+    html: boolean;
+    unsafe_html: boolean;
+    files: boolean;
+    add_message: boolean;
+  },
+  char: Character;
+  world: World;
+  chat_name: string;
+  char_id: string;
+  readonly username: string;
+  Charname: string;
+  readonly UserCharname: string;
+  locales: string[];
+  time: Date;
+  chat_log: ChatLog[];
+  AddChatLogEntry: (entry: ChatLog) => void;
+  other_chars: Character;
+  plugins: Record<string, Plugin>;
+  Update: () => Channel;
+  chat_scoped_char_memory: Record<string, any>;
+  extension: Record<string,boolean>;
+}
