@@ -24,7 +24,7 @@ export async function infoPrompt(args, logical_results) {
 		const lastMessage = args.chat_log.slice(-1)[0]
 		const lastMessageTime = lastMessage.time_stamp
 		result += `\
-当前时间：${timeToStr(timeNow, args.locales[0])}
+当前时间(UTC)：${timeToStr(timeNow, args.locales[0])}
 `
 		if (args.extension?.enable_prompts?.info?.lunar || await match_keys(args, [
 			'什么日子', '什么节日', '什么时间',
