@@ -3,7 +3,7 @@
 
 import { OrderedAISourceCalling } from '../../AISource/index.mjs'
 import { config } from '../../config/index.ts'
-import { mergePrompt } from '../../prompt/build.mjs'
+import { mergePrompt } from '../../prompt/build.ts'
 import { CodeRunnerPrompt } from '../../prompt/functions/coderunner.mjs'
 import { DeepResearchMainPrompt } from '../../prompt/functions/deep-research.mjs'
 import { GoogleSearchPrompt } from '../../prompt/functions/googlesearch.mjs'

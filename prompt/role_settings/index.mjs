@@ -1,4 +1,4 @@
-import { mergePrompt } from '../build.mjs'
+import { mergePrompt } from '../build.ts'
 
 import { AbilityPrompt } from './ability.mjs'
 import { BackgroundPrompt } from './background.mjs'
@@ -17,11 +17,6 @@ import { SexPrompt } from './sex.mjs'
 /** @typedef {import("../../../../../../../src/decl/prompt_struct.ts").single_part_prompt_t} single_part_prompt_t */
 /** @typedef {import("../logical_results/index.mjs").logical_results_t} logical_results_t */
 
-/**
- * @param {chatReplyRequest_t} args 用户输入参数
- * @param {logical_results_t} logical_results 逻辑结果
- * @returns {Promise<single_part_prompt_t>} 角色设定Prompt
- */
 export async function RoleSettingsPrompt(args, logical_results) {
 	const result = []
 	result.push(corpusPrompt(args, logical_results))

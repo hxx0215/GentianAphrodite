@@ -3,7 +3,7 @@ import type {Router} from 'npm:express'
 import type {Client} from 'npm:discord.js'
 import type {Telegraf} from 'npm:telegraf'
 
-type MaybePromise<A> = Promise<A> | A
+export type MaybePromise<A> = Promise<A> | A
 export type ChatLog = {
   role: string;
   name: string;
@@ -15,6 +15,7 @@ export type Prompt= {
     important: number
   }[];
   additional_chat_log?: ChatLog[];
+  extension ?: any;
 }
 export type Stat = {
   username: string;
@@ -105,6 +106,7 @@ export type Plugin = GeneralComponent & {
   interfaces?:{
     chat:{
       ReplyHandler: (result: AIReply) => Promise<boolean>;
+      GetReplyPreviewUpdater: (next: any) => (args:any, reply: any) => void
     }
   }
 
@@ -135,4 +137,18 @@ export type Channel = {
   Update: () => Channel;
   chat_scoped_char_memory: Record<string, any>;
   extension: Record<string,boolean>;
+}
+export type LogicalResult = {
+  is_multi_char_chat: boolean;
+  in_reply_to_master: boolean;
+  in_hypnosis: boolean;
+  hypnosis_exit: boolean;
+  in_assist: boolean;
+  in_subassist: boolean;
+  in_nsfw: boolean;
+  is_pure_chinese: boolean;
+  talking_about_ai_character: boolean;
+  talking_about_prompt_review: boolean;
+  prompt_input: boolean;
+  in_fight: boolean;
 }

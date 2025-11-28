@@ -5,28 +5,7 @@ import { is_PureChinese } from '../../scripts/langdetect.mjs'
 import { getScopedChatLog, match_keys, match_keys_count, PreprocessChatLogEntry } from '../../scripts/match.mjs'
 
 /**
- * @typedef {{
- *  in_muti_char_chat: boolean,
- * 	in_reply_to_master: boolean,
- * 	in_hypnosis: boolean,
- * 	in_assist: boolean,
- * 	in_subassist: boolean,
- * 	in_nsfw: boolean,
- * 	in_fight: boolean,
- * 	is_pure_chinese: boolean,
- * 	hypnosis_exit: boolean,
- * 	talking_about_ai_character: boolean,
- * 	talking_about_prompt_review: boolean,
- * 	prompt_input: boolean
- * }} logical_results_t
- */
-
-/** @typedef {import("../../../../../../../src/public/shells/chat/decl/chatLog.ts").chatReplyRequest_t} chatReplyRequest_t */
-/** @typedef {import("../logical_results/index.mjs").logical_results_t} logical_results_t */
-
-/**
  * @param {chatReplyRequest_t} args 聊天回复请求
- * @returns {Promise<logical_results_t>} 逻辑结果
  */
 export async function buildLogicalResults(args) {
 	/** @type {logical_results_t} */

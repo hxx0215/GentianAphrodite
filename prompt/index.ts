@@ -1,6 +1,6 @@
 import { updatePromptTokenData } from '../scripts/statistics.mjs'
 
-import { buildPrompt } from './build.mjs'
+import { buildPrompt } from './build.ts'
 import { buildLogicalResults } from './logical_results/index.mjs'
 import type { Prompt } from "../types/basic.ts"
 /**

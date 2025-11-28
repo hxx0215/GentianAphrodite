@@ -1,4 +1,4 @@
-import { mergePrompt } from '../build.mjs'
+import { mergePrompt } from '../build.ts'
 
 import { AutoCalcPrompt } from './autocalc.mjs'
 import { BrowserIntegrationPrompt } from './browserIntegration.mjs'
@@ -24,15 +24,7 @@ import { StatisticDatasPrompt } from './statistic_datas.mjs'
 import { TaroPrompt } from './taro.mjs'
 import { TimerPrompt } from './timer.mjs'
 import { WebBrowsePrompt } from './webbrowse.mjs'
-/** @typedef {import("../../../../../../../src/public/shells/chat/decl/chatLog.ts").chatReplyRequest_t} chatReplyRequest_t */
-/** @typedef {import("../logical_results/index.mjs").logical_results_t} logical_results_t */
 
-/**
- * 生成功能相关的 Prompt。
- * @param {chatReplyRequest_t} args - 聊天回复请求参数。
- * @param {logical_results_t} logical_results - 逻辑结果。
- * @returns {Promise<object>} - 合并后的 Prompt 对象。
- */
 export async function FunctionPrompt(args, logical_results) {
 	const result = []
 	result.push(StatisticDatasPrompt(args, logical_results))
