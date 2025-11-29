@@ -1,7 +1,7 @@
 
 import fs from 'node:fs'
 
-import { listLongTermMemory } from '../prompt/memory/long-term-memory.mjs'
+import { listLongTermMemory } from '../prompt/memory/long-term-memory.ts'
 import { getHighestScoreShortTermMemory, getMostFrequentChatName, getShortTermMemoryNum } from '../prompt/memory/short-term-memory.mjs'
 import { statisticDatas } from '../scripts/statistics.mjs'
 import { escapeHTML, parseDuration, timeToStr, timeToTimeStr, FormatStr } from '../scripts/tools.mjs'

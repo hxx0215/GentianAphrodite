@@ -12,7 +12,7 @@ AI可以在返回内容中使用特定格式来创建永久记忆，其返回内
 AI被允许使用特殊返回格式进行永久记忆的删除或更新。
 */
 
-import { addLongTermMemory, deleteLongTermMemory, listLongTermMemory, updateLongTermMemory, testLongTermMemoryTrigger, getLongTermMemoryByName, formatLongTermMemoryContext } from '../../prompt/memory/long-term-memory.mjs'
+import { addLongTermMemory, deleteLongTermMemory, listLongTermMemory, updateLongTermMemory, testLongTermMemoryTrigger, getLongTermMemoryByName, formatLongTermMemoryContext } from '../../prompt/memory/long-term-memory.ts'
 import { createContextSnapshot } from '../../scripts/context.mjs'
 
 /** @typedef {import("../../../../../../../src/public/shells/chat/decl/chatReplyRequest_t} chatReplyRequest_t */

@@ -1,7 +1,7 @@
 
 import { Charbase } from '../charbase.ts'
 import { config } from '../config/index.ts'
-import { formatLongTermMemory, getRandomNLongTermMemories } from '../prompt/memory/long-term-memory.mjs'
+import { formatLongTermMemory, getRandomNLongTermMemories } from '../prompt/memory/long-term-memory.ts'
 import { GetReply } from '../reply_gener/index.mjs'
 
 import { initRealityChannel, RealityChannel } from './index.ts'

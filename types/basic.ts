@@ -4,10 +4,13 @@ import type {Client} from 'npm:discord.js'
 import type {Telegraf} from 'npm:telegraf'
 
 export type MaybePromise<A> = Promise<A> | A
-export type ChatLog = {
+export type ChatLog = AIReply &{
   role: string;
   name: string;
   content: string;
+  id?: string;
+  avatar?: string;
+  time_stamp?: number;
 }
 export type Prompt= {
   text?:{
@@ -120,6 +123,8 @@ export type Channel = {
     unsafe_html: boolean;
     files: boolean;
     add_message: boolean;
+		fount_i18nkeys?: boolean;
+		fount_assets?: boolean;
   },
   char: Character;
   world: World;
@@ -136,7 +141,9 @@ export type Channel = {
   plugins: Record<string, Plugin>;
   Update: () => Channel;
   chat_scoped_char_memory: Record<string, any>;
-  extension: Record<string,boolean>;
+  extension: Record<string,any>;
+  user?: any;
+  chat_summary?: any;
 }
 export type LogicalResult = {
   is_multi_char_chat: boolean;
