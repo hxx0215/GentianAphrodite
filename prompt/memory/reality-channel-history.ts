@@ -19,10 +19,10 @@ export function RealityChannelHistoryPrompt(args: Channel, _logical_results: Log
 	let result = ''
 	if (historyText.trim())
 		result = `\
-<reality_channel_history>\
+<reality-channel-history>\
 以下是你最近在现实频道中的活动记录：\
 ${historyText}\
-</reality_channel_history>\
+</reality-channel-history>\
 `
 
 	return {
