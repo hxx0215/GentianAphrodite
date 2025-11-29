@@ -8,7 +8,6 @@ import { flatChatLog, match_keys, PreprocessChatLogEntry } from '../../scripts/m
 import { findMostFrequentElement } from '../../scripts/tools.mjs'
 import { Charbase } from '../../charbase.ts'
 const {chardir} = Charbase
-/** @typedef {import("../../../../../../../src/public/shells/chat/decl/chatLog.ts").chatReplyRequest_t} chatReplyRequest_t */
 /** @typedef {import("../../../../../../../src/public/shells/chat/decl/chatLog.ts").chatLogEntry_t} chatLogEntry_t */
 /** @typedef {import("../../../../../../../src/decl/prompt_struct.ts").single_part_prompt_t} single_part_prompt_t */
 /** @typedef {import("../logical_results/index.mjs").logical_results_t} logical_results_t */
@@ -247,7 +246,6 @@ function selectOneWeightedRandom(items, weights) {
  * 短期记忆处理主函数
  * 负责：提取当前对话关键词 -> 检索相关记忆 -> 生成Prompt -> 记录新记忆
  *
- * @param {chatReplyRequest_t} args 用户输入参数（包含聊天记录）
  * @param {logical_results_t} logical_results 逻辑结果
  * @returns {Promise<single_part_prompt_t>} 记忆组成的Prompt对象
  */
